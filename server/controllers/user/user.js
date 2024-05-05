@@ -47,7 +47,28 @@ const apiV1Login = async (req, res) => {
     }
 };
 
+const apiV1Update = async (req, res) => {
+    try {
+      const { name, email, mobile, city, password, role } = req.body;
+  
+      if (!name || !email || !mobile || !city || !password || !role) {
+        return res.status(400).json({ message: "Please provide all fields" });
+      }
+  
+      const updatedUser = await User.findOneAndUpdate({ email }, { name, mobile, city, password, role }, { new: true });
+  
+      if (!updatedUser) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      return res.status(200).json({ message: "User updated successfully", user: updatedUser });
+    } catch (error) {
+      console.error("Error:", error);
+      return res.status(500).json({ message: "Internal server error" });
+    }
+}
 
-export { apiV1Signup, apiV1Login};
+
+export { apiV1Signup, apiV1Login, apiV1Update};
     
 
