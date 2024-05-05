@@ -68,7 +68,6 @@ const apiV1Update = async (req, res) => {
     }
 }
 
-
 export { apiV1Signup, apiV1Login, apiV1Update};
     
 
