@@ -23,7 +23,31 @@ const apiV1Signup = async (req, res) => {
     }
 };
 
+const apiV1Login = async (req, res) => {
+    try {
+      const { email, password } = req.body;
+  
+      if (!email || !password) {
+        return res.status(400).json({ message: "Please provide all fields" });
+      }
+  
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(400).json({ message: "User does not exist" });
+      }
+  
+      if (user.password !== password) {
+        return res.status(400).json({ message: "Invalid credentials" });
+      }
+  
+      return res.status(200).json({ message: "Login successful", user });
+    } catch (error) {
+      console.error("Error:", error);
+      return res.status(500).json({ message: "Internal server error" });
+    }
+};
 
-export { apiV1Signup };
+
+export { apiV1Signup, apiV1Login};
     
 
