@@ -7,7 +7,7 @@ const packageSchema = new Schema({
     },
     offerPrice:{
         type: Number,
-       
+        required: true
     },
     packageName:{
         type: String,

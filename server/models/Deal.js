@@ -1,27 +1,27 @@
 import { Schema, model } from "mongoose";
 
 const dealSchema = new Schema({
-  price:{
+    amount: {
         type: Number,
         required: true
     },
-    note:{
+    note: {
         type: String,
         required: true
     },
-    package:{
-        type:  Schema.Types.ObjectId,
-       ref: 'Package'
+    package: {
+        type: Schema.Types.ObjectId,
+        ref: 'Package'
     },
-    user:{
+    user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    influncer:{
+    influncer: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
-    
+
 }, {
     timestamps: true
 });

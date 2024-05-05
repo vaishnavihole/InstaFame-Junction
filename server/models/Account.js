@@ -11,11 +11,13 @@ const accountSchema = new Schema({
     },
     followers:{
         type: Number,
-        required: true
+        default: 0,
+        min: 0
     },
     subscribers:{
         type: Number,
-        required: true
+        default: 0,
+        min: 0
     },
     user:{
         type: Schema.Types.ObjectId,
