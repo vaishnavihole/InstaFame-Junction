@@ -2,9 +2,13 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
+import {apiV1Signup} from "./controllers/user/user.js";
+
 dotenv.config();
 const app = express();
 app.use(express.json());
+
+app.post("/api/v1/signup", apiV1Signup);
 
 const PORT = process.env.PORT || 5000;
 
