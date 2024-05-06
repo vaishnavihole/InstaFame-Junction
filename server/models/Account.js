@@ -7,7 +7,6 @@ const accountSchema = new Schema({
     },
     handle:{
         type: String,
-        required: true
     },
     followers:{
         type: Number,

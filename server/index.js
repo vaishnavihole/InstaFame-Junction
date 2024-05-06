@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
 import {apiV1Signup, apiV1Login, apiV1Update} from "./controllers/user/user.js";
+import {apiv1AddAccount} from "./controllers/account/account.js"
 
 dotenv.config();
 const app = express();
@@ -11,6 +12,8 @@ app.use(express.json());
 app.post("/api/v1/signup", apiV1Signup);
 app.post("/api/v1/login", apiV1Login);
 app.put("/api/v1/update", apiV1Update);
+
+app.post("/api/v1/addAccount", apiv1AddAccount)
 
 const PORT = process.env.PORT || 5000;
 
