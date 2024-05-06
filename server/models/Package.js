@@ -3,19 +3,15 @@ import {Schema, model} from "mongoose";
 const packageSchema = new Schema({
     price:{
         type: Number,
-        required: true
     },
     offerPrice:{
         type: Number,
-        required: true
     },
     packageName:{
         type: String,
-        required: true
     },
     packageDescription:{
         type: String,
-        required: true
     },
     influencer:{
         type: Schema.Types.ObjectId,
