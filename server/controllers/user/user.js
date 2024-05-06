@@ -68,6 +68,35 @@ const apiV1Update = async (req, res) => {
     }
 }
 
-export { apiV1Signup, apiV1Login, apiV1Update};
+const apiV1AllUsers = async (req, res) => {
+    try {
+      const users = await User.find();
+      return res.status(200).json({ users });
+    } catch (error) {
+      console.error("Error:", error);
+      return res.status(500).json({ message: "Internal server error" });
+    }
+}
+
+const apiV1GetUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+      const user = await User.findById(id);
+      
+      if (!user) {
+          return res.status(404).json({ message: "User not found" });
+      }
+
+      return res.status(200).json({ user });
+  } catch (error) {
+      console.error("Error:", error);
+      return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+
+
+export { apiV1Signup, apiV1Login, apiV1Update, apiV1AllUsers, apiV1GetUser};
     
 

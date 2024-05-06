@@ -16,12 +16,7 @@ const dealSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    },
-    influncer: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
     }
-
 }, {
     timestamps: true
 });
