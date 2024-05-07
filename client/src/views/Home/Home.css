@@ -1,0 +1,84 @@
+.quotes {
+    font-size: 30px;
+    margin-top: 150px;
+    text-align: center;
+    color: black;
+    font-weight: bold;  
+}
+
+.features-container {
+    text-align: center; /* Center align content */
+}
+
+
+
+.header-img-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; 
+    overflow: hidden; 
+}
+
+.header-image {
+    height: 400px; 
+    width: 400px; 
+    margin-top: 50px; 
+    filter: drop-shadow(0 0 4px #ffd480); 
+    border-radius: 10px; 
+    transition: transform 0.3s ease; 
+}
+
+.header-image:hover {
+    transform: scale(1.1); 
+}
+
+
+.header-image:hover {
+    animation: pulse 0.5s infinite; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.influencer-btn {
+    margin-right: 10px; 
+    padding: 10px 20px; 
+    background: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%) ; 
+    color: #333; 
+    border: 1px solid #8d2578;
+    border-radius: 30px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+    margin-top: 60px;
+    margin-right: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.influencer-btn:hover {
+    background: linear-gradient(45deg, #FF5ACD 0%, #FBDA61 100%); 
+}
+
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center; 
+    }
+   
+    .influencer-btn{
+        margin-right: 0; 
+        margin-top: 10px; 
+    }
+
+    .influencer-btn-want {
+        width: 230px;
+        height: 45px;
+    }
+
+
+
+}
