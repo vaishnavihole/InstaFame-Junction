@@ -16,7 +16,10 @@ const packageSchema = new Schema({
     influencer:{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    headerImage:{
+        type: String,
+    },
     
 }, {
     timestamps: true
