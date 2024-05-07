@@ -6,10 +6,45 @@ import {apiV1Signup, apiV1Login, apiV1Update, apiV1AllUsers, apiV1GetUser} from 
 import {apiv1AddAccount,  apiV1AllAccounts, apiV1GetAccount, apiV1UpdateAccount} from "./controllers/account/account.js";
 import {apiv1AddPackage, apiV1AllPackages, apiV1UpdatePackage,  apiV1GetPackage} from "./controllers/package/package.js";
 import {apiv1AddDeal, apiV1AllDeals, apiV1GetDeal, apiV1UpdateDeal} from "./controllers/deal/deal.js";
+import uploadCloudinary from './utils/cloudinary.js';
+import fs from 'fs';
+import multer from 'multer';
 
 dotenv.config();
 const app = express();
 app.use(express.json());
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const uploadPath = "./public/temp";
+    fs.mkdirSync(uploadPath, { recursive: true });
+    cb(null, uploadPath);
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
+
+const upload = multer({ storage });
+app.post('/upload', upload.single('file'), async (req, res) => {
+  try {
+
+    const localFilePath = req.file.path;
+    const response = await uploadCloudinary(localFilePath);
+    console.log(localFilePath);
+    console.log(response);
+
+    if (response) {
+      res.status(200).json({ url: response.url });
+    } else {
+      res.status(500).json({ error: "Failed to upload file to Cloudinary" });
+    }
+  } catch (error) {
+    console.error("Error uploading file:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 app.post("/api/v1/signup", apiV1Signup);
 app.post("/api/v1/login", apiV1Login);
