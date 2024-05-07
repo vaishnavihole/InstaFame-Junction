@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,500;0,600;1,500;1,600&family=Pridi:wght@200;300;400;500;600;700&display=swap');
+
 .quotes {
     font-size: 30px;
     margin-top: 150px;
@@ -47,21 +49,82 @@
 .influencer-btn {
     margin-right: 10px; 
     padding: 10px 20px; 
-    background: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%) ; 
-    color: #333; 
-    border: 1px solid #8d2578;
-    border-radius: 30px; 
+    background:linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);;  
+    border: 1px solid black;
+    border-radius: 10px; 
     cursor: pointer;
-    transition: background-color 0.3s ease; 
     margin-top: 60px;
     margin-right: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: 0.5s;
 }
 
 .influencer-btn:hover {
-    background: linear-gradient(45deg, #FF5ACD 0%, #FBDA61 100%); 
-}
+    border-radius: 30px; 
+  }
+  
+
+
+.featured-container {
+    display: flex !important
+    ;
+    justify-content: space-evenly !important;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .featured-card {
+    width: 270px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .featured-image {
+    max-width: 80px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    text-align: center;
+  }
+  
+  .featured-name {
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .featured-description {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+    text-align: justify;
+  }
+  
+  .features-heading {
+    font-size: 38px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    font-family: "Lobster Two", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+  }
+  
+  
+
 
 @media (max-width: 768px) {
     .button-container {
