@@ -7,6 +7,9 @@ import ImgHeader from './images/HeaderImg.png';
 import campagin from './images/campagin.png';
 import influencer from './images/influencer.png';
 import dashboard from './images/dashboard.png';
+import promoting from './images/promoting.png';
+import collaboration from './images/collaboration.png';
+import brand from './images/brand.png';
 
 googleFonts.add({
   'Open Sans': ['400', '700']
@@ -61,6 +64,35 @@ function Home() {
             <img src={campagin} alt="Feature 1" className="featured-image" />
             <h3 className="featured-name">Campaign Management Tools
 </h3>
+            <p className="featured-description">
+              Enhancing medical care, Livin QR facilitates the submission of victims'
+              medical histories to hospitals, ensuring timely and informed treatment.</p>
+          </div>
+      </div>
+
+      
+      <h2 className="features-heading">For Influencers</h2>
+      <div className='featured-container'>
+
+          <div className="featured-card">
+            <img src={promoting} alt="promotion" className="featured-image" />
+            <h3 className="featured-name">Earn Risk-Free by Promoting as an Influencer</h3>
+            <p className="featured-description">
+              Enhancing medical care, Livin QR facilitates the submission of victims'
+              medical histories to hospitals, ensuring timely and informed treatment.</p>
+          </div>
+
+          <div className="featured-card">
+            <img src={collaboration} alt="collaboration" className="featured-image" />
+            <h3 className="featured-name">Connect and Collaborate with Multiple Businesse</h3>
+            <p className="featured-description">
+              Enhancing medical care, Livin QR facilitates the submission of victims'
+              medical histories to hospitals, ensuring timely and informed treatment.</p>
+          </div>
+
+          <div className="featured-card">
+            <img src={brand} alt="brand" className="featured-image" />
+            <h3 className="featured-name">Personal Brand Growth Tools</h3>
             <p className="featured-description">
               Enhancing medical care, Livin QR facilitates the submission of victims'
               medical histories to hospitals, ensuring timely and informed treatment.</p>
