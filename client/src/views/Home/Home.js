@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css';  
+import './Home.css';  // Import your CSS file
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import googleFonts from 'google-fonts';
@@ -19,11 +19,11 @@ googleFonts.add({
   'Playfair Display': ['400', '700'],
 });
 
-
 function Home() {
   return (
     <div>
       <Navbar />
+      <div className="bubble-animation"></div> 
       <div className='row'>
         <div className='col-md-6'>
           <div className='header-img-container'>
@@ -44,7 +44,7 @@ function Home() {
       <h2 className="features-heading">For Business Owners</h2>
       <div className='featured-container'>
 
-          <div className="featured-card">
+          <div className="featured-card ">
             <img src={influencer} alt="influncer" className="featured-image" />
             <h3 className="featured-name">Get the Most Appropriate Influencer</h3>
             <p className="featured-description">
@@ -91,7 +91,7 @@ function Home() {
 
           <div className="featured-card">
             <img src={brand} alt="brand" className="featured-image" />
-            <h3 className="featured-name">Personal Brand Growth Tools</h3>
+            <h3 className="featured-name">Personal Brand Growth Tools</h3>
             <p className="featured-description">
               Enhancing medical care, Livin QR facilitates the submission of victims'
               medical histories to hospitals, ensuring timely and informed treatment.</p>
