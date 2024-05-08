@@ -26,7 +26,7 @@ function Footer() {
         </div>
     </div>
     <div class="footer-bottom">
-        <p>Developed By Vaishnavi Hole</p>
+        <p>Developed By Vaishnavi Hole❤️</p>
     </div>
 </footer>
 

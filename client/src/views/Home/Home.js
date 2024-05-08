@@ -62,8 +62,7 @@ function Home() {
 
           <div className="featured-card">
             <img src={campagin} alt="Feature 1" className="featured-image" />
-            <h3 className="featured-name">Campaign Management Tools
-</h3>
+            <h3 className="featured-name">Campaign Management Tools</h3>
             <p className="featured-description">
               Enhancing medical care, Livin QR facilitates the submission of victims'
               medical histories to hospitals, ensuring timely and informed treatment.</p>

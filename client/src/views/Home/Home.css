@@ -27,7 +27,7 @@
     height: 400px; 
     width: 400px; 
     margin-top: 50px; 
-    filter: drop-shadow(0 0 4px #ffd480); 
+    filter: drop-shadow(0 0 4px  #66a6ff); 
     border-radius: 10px; 
     transition: transform 0.3s ease; 
 }
@@ -63,10 +63,8 @@
   }
   
 
-
 .featured-container {
-    display: flex !important
-    ;
+    display: flex !important ;
     justify-content: space-evenly !important;
     flex-wrap: wrap;
     margin-top: 20px;
@@ -120,7 +118,7 @@
     font-family: "Lobster Two", sans-serif;
     font-weight: bold;
     text-align: center;
-    color: #333;
+    color: #2196c4;
   }
   
   
