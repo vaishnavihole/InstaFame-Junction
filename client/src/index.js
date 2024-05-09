@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import Home from './views/Home/Home';
+import Login from './views/Login/Login';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,6 +13,11 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />
+  },
+
+  {
+    path: '/login',
+    element: <Login />
   },
  
 ])
