@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
+import InfluncerCards from './views/InfluncerCards/InfluncerCards';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
+  },
+  
+  {
+    path: '/influncerCards',
+    element: <InfluncerCards/>
   },
  
 ])

@@ -1,0 +1,62 @@
+.influncer-container{
+  display: flex !important ;
+  justify-content: space-evenly !important;
+  flex-wrap: wrap;
+  margin-top: 80px;
+  
+}
+
+.influncer-card {
+  width: 270px;
+  position: relative;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.influncer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 0.5px solid #2196c4;
+}
+
+
+.user-name {
+  font-size: 18px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.influncer-profile-image {
+  position: absolute; 
+  top: 50%; 
+  top: -55%; 
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 0.5px solid black;
+  transition: transform 0.3s; /* Add transition effect */
+}
+
+/* Hover effect */
+.influncer-profile-image:hover {
+  transform: scale(1.1); /* Increase scale on hover */
+  border: 0.5px solid #2196c4;
+}
+
+
+
+
+
+
+.follower-count{
+  margin-left: 10px;
+}
