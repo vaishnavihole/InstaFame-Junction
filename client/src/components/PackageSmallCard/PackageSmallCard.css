@@ -128,6 +128,7 @@
     cursor: pointer; /* Cursor style */
    margin-left: 20px; /* Add some spacing */
    transition: 0.5s;
+   width: 200px;
   }
   
   .buy-now-btn:hover {
