@@ -1,0 +1,139 @@
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.package-card {
+  margin-right: 20px; 
+
+}
+
+.package-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    max-width: 300px;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .package-card:hover {
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .details p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+   .price {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .details .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  .details .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .details .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease;
+    z-index: -1;
+  }
+  
+  .details .btn:hover::before {
+    width: 100%;
+  }
+  
+  
+  .feature-list {
+    list-style: none;
+   margin-left: 20px;
+  }
+  
+  .feature-list li {
+    display: flex; 
+    align-items: center;
+    padding-left: 10px; 
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+
+  .feature-list li:hover {
+    color: #007bff;
+  }
+  
+  
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+}
+
+.custom-icon {
+    margin-right: 20px; 
+    color:  #2196c4; 
+}
+
+  
+  .package-heading{
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 15px;
+    color: #2196c4;
+    font-family: 'Pacifico', cursive; 
+    animation: bounce 0.8s ease infinite;
+  }
+
+  .buy-now-btn {
+    background:linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    border: none; /* Remove border */
+    padding: 12px 24px; /* Padding */
+    border-radius: 5px; /* Border radius */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+   margin-left: 20px; /* Add some spacing */
+   transition: 0.5s;
+  }
+  
+  .buy-now-btn:hover {
+   border-radius: 30px;
+  }
+  
+
+  
+  

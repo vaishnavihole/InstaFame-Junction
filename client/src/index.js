@@ -6,6 +6,7 @@ import './index.css';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import InfluncerCards from './views/InfluncerCards/InfluncerCards';
+import PackageCard from './views/PackageCard/PackageCard';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
     path: '/influncerCards',
     element: <InfluncerCards/>
   },
+
+  {
+    path: '/packageCard',
+    element: <PackageCard/>
+  }
  
 ])
 
