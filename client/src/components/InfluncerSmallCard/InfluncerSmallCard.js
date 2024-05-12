@@ -19,10 +19,6 @@ function InfluncerSmallCard() {
 </div>
 
 
-
-
-
-
 </div>
     </div>
   )
