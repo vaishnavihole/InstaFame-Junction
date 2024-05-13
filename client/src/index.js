@@ -7,7 +7,8 @@ import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import InfluncerCards from './views/InfluncerCards/InfluncerCards';
 import PackageCard from './views/PackageCard/PackageCard';
-import  DealCard from './views/DealCard/DealCard'
+import  DealCard from './views/DealCard/DealCard';
+import AddNote from './views/AddNote/AddNote';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
   {
     path: '/DealCard',
     element: <DealCard/>
+  },
+
+  {
+    path: '/addNote',
+    element: <AddNote/>
   }
  
 ])
