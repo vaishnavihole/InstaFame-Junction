@@ -30,8 +30,7 @@ const apiV1AllDeals = async (req, res) => {
 
     return res.status(200).json({ deals });
 };
-
-
+5
 const apiV1GetDeal = async (req, res) => {
     const { id } = req.params;
     let deal;
