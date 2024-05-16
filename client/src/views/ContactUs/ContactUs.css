@@ -1,0 +1,112 @@
+.contact-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: flex-start; /* Align items to the left */
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+  }
+  
+  .contact-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Align image to the left */
+    align-items: center;
+    margin-right: 10px; /* Add some space between image and form */
+  }
+  
+  .contact-image img {
+    height: 80vh; /* Adjust this value to set the desired height */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    opacity: 0; /* Start with the image hidden */
+    animation: fadeIn 2s forwards; /* Apply the fade-in animation */
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1; 
+    }
+  }
+  
+  .contact-form {
+    flex: 0 1 400px; /* Adjust the basis here to control the size */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .contact-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .contact-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .contact-form .form-group input,
+  .contact-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact-form .form-group textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .contact-submit-btn {
+    padding: 10px 20px;
+    border: none;
+    width: 200px;
+    background:linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);;  
+    color: #fff;
+    transition: 0.5s;
+    border: 1px solid black;
+    border-radius: 10px; 
+    cursor: pointer;
+   margin-left: 90px;
+  }
+  
+  .contact-submit-btn:hover {
+    border-radius: 30px; 
+  }
+
+  .contact-text{
+    text-align: center;
+    font-size: 30px;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column;
+      align-items: center; /* Center align items on small screens */
+    }
+    .contact-form {
+      flex: 1;
+      width: 100%;
+      margin-left: 0; /* Reset the margin-left for small screens */
+    }
+    .contact-image {
+      margin-bottom: 20px;
+    }
+    .contact-image img {
+      height: auto; /* Reset height to auto for small screens */
+      width: 100%;
+    }
+  }
+  
