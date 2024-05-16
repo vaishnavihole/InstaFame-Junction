@@ -35,7 +35,7 @@ const Login = () => {
       } else if (response.data.user.role === 'influencer') {
         window.location.href = '/dashboard';
       }
-      // Show success alert using SweetAlert
+      
       Swal.fire({
         icon: 'success',
         title: 'Login Successful!',

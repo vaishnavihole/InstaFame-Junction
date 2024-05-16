@@ -14,7 +14,7 @@ const PackageSmallCard = () => {
                         <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 2</li>
                         <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 3</li>
                     </ul>
-                    <div className="price">$100</div>
+                    <div className="price"> ₹100</div>
                     <button className="buy-now-btn">Buy Now</button>
                 </div>
             </div>
@@ -27,7 +27,7 @@ const PackageSmallCard = () => {
                         <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 2</li>
                         <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 3</li>
                     </ul>
-                    <div className="price">$200</div>
+                    <div className="price"> ₹200</div>
                     <button className="buy-now-btn">Buy Now</button>
                 </div>
             </div>
@@ -40,7 +40,7 @@ const PackageSmallCard = () => {
                         <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 2</li>
                         <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 3</li>
                     </ul>
-                    <div className="price">$300</div>
+                    <div className="price"> ₹300</div>
                     <button className="buy-now-btn">Buy Now</button>
                 </div>
             </div>

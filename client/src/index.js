@@ -9,6 +9,7 @@ import InfluncerCards from './views/InfluncerCards/InfluncerCards';
 import PackageCard from './views/PackageCard/PackageCard';
 import  DealCard from './views/DealCard/DealCard';
 import AddNote from './views/AddNote/AddNote';
+import InfluncerDashboard from './views/InfluncerDashboard/InfluncerDashboard';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
   {
     path: '/addNote',
     element: <AddNote/>
+  },
+
+  {
+    path: '/influncerDashboard',
+    element: <InfluncerDashboard/>
   }
  
 ])
