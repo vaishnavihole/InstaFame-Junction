@@ -33,7 +33,7 @@ const Login = () => {
       if (response.data.user.role === 'user') {
         window.location.href = 'influncerCards';
       } else if (response.data.user.role === 'influencer') {
-        window.location.href = '/dashboard';
+        window.location.href = '/influncerDashboard';
       }
       
       Swal.fire({
