@@ -23,6 +23,7 @@ function InfluncerCards() {
   return (
     <div>
       <Navbar />
+
       <div className='influncer-card-div'>
         {influencers.map(influencer => {
 
