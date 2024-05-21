@@ -51,13 +51,13 @@ const apiV1Login = async (req, res) => {
 
 const apiV1Update = async (req, res) => {
     try {
-      const { name, email, mobile, city, password, role } = req.body;
+      const { name, email, mobile, city, password, role, profileImage } = req.body;
   
       if (!name || !email || !mobile || !city || !password || !role) {
         return res.status(400).json({ message: "Please provide all fields" });
       }
   
-      const updatedUser = await User.findOneAndUpdate({ email }, { name, mobile, city, password, role }, { new: true });
+      const updatedUser = await User.findOneAndUpdate({ email }, { name, mobile, city, password, role , profileImage }, { new: true });
   
       if (!updatedUser) {
         return res.status(404).json({ message: "User not found" });
