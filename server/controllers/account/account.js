@@ -3,7 +3,7 @@ import Account from "../../models/Account.js";
 const apiv1AddAccount = async (req, res) => {
     const { accountType, handle, followers, subscribers, user } = req.body;
 
-    if (!accountType || !handle || !followers || !user) {
+    if (!accountType || !handle || !user) {
         return res.status(400).json({ message: "Please provide all fields" });
     }
 
