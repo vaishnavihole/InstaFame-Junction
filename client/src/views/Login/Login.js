@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Login.css'; 
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import openEyeImage from './open-eye.jpeg';
 import closedEyeImage from './close-eye.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
-import axios from 'axios'; 
-
+import axios from 'axios';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -17,25 +16,27 @@ const Login = () => {
   const [city, setCity] = useState('');
   const [password, setPassword] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
-  const [role, setRole] = useState(''); 
+  const [role, setRole] = useState('');
   const [error, setError] = useState('');
-  
-  const handleLogin = async () => {
 
+  const handleLogin = async () => {
     try {
       const response = await axios.post('/api/v1/login', {
-         email: email,
+        email: email,
         password: password
-       });
+      });
       console.log("reached here");
       console.log(response);
+
+    
+      sessionStorage.setItem('user', JSON.stringify(response.data.user));
 
       if (response.data.user.role === 'user') {
         window.location.href = 'influncerCards';
       } else if (response.data.user.role === 'influencer') {
         window.location.href = '/influncerDashboard';
       }
-      
+
       Swal.fire({
         icon: 'success',
         title: 'Login Successful!',
@@ -125,8 +126,7 @@ const Login = () => {
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
                 required
-           
-           />
+              />
             </div>
           )}
           {!isLogin && (

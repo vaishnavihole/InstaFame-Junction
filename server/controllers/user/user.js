@@ -53,10 +53,6 @@ const apiV1Update = async (req, res) => {
     try {
       const { name, email, mobile, city, password, role, profileImage } = req.body;
   
-      if (!name || !email || !mobile || !city || !password || !role) {
-        return res.status(400).json({ message: "Please provide all fields" });
-      }
-  
       const updatedUser = await User.findOneAndUpdate({ email }, { name, mobile, city, password, role , profileImage }, { new: true });
   
       if (!updatedUser) {
