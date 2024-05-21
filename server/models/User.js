@@ -25,7 +25,6 @@ const userSchema = new Schema({
         type: String,
         enum: ['admin', 'user', 'influencer'],
     },
-
 }, {
     timestamps: true
 });

@@ -1,4 +1,6 @@
+import Account from "../../models/Account.js";
 import User from "../../models/User.js";
+
 
 const apiV1Signup = async (req, res) => {
     try {
@@ -97,8 +99,20 @@ const apiV1GetUser = async (req, res) => {
 
 const apiV1GetInfluencerUsers = async (req, res) => {
   try {
+    const influencers = []
+
     const users = await User.find({ role: 'influencer' });
-    return res.status(200).json({ users });
+
+    for(const user of users){
+      const userAccounts = await Account.find({user: user._id});
+      
+      influencers.push({
+        ...user._doc,
+        accounts: userAccounts
+      })
+    }
+
+    return res.status(200).json({ users: influencers });
   } catch (error) {
     console.error("Error:", error);
     return res.status(500).json({ message: "Internal server error" });

@@ -3,7 +3,7 @@ import './InfluncerSmallCard.css';
 import profile from './profile.png';
 import { FaInstagram } from 'react-icons/fa'; 
 
-function InfluncerSmallCard() {
+function InfluncerSmallCard({}) {
   return (
   <div>
 <div className='influncer-container'>
