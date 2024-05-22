@@ -27,9 +27,9 @@ function InfluncerCards() {
       <div className='influncer-card-div'>
         {influencers.map(influencer => {
 
-          const {_id, name, accounts} = influencer
+          const {_id, name, accounts, profileImage} = influencer
 
-          return (<InfluncerSmallCard key={_id} name={name} accounts={JSON.stringify(accounts)}/>)
+          return (<InfluncerSmallCard key={_id} name={name} accounts={JSON.stringify(accounts)}  profileImage={ profileImage}/>)
     })}
       </div>
       

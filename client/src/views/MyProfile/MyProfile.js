@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './MyProfile.css';
+import Swal from 'sweetalert2';
 
 function MyProfile() {
   const [profilePictureUrl, setProfilePictureUrl] = useState('');
@@ -11,7 +12,7 @@ function MyProfile() {
     city: '',
   });
 
-  // Retrieve user data from session storage when component mounts
+  
   useEffect(() => {
     const user = JSON.parse(sessionStorage.getItem('user'));
     if (user) {
@@ -68,6 +69,11 @@ function MyProfile() {
     } catch (error) {
       console.error('Error updating profile:', error);
     }
+       Swal.fire({
+        icon: 'success',
+        title: 'Profile Updated!',
+        text: 'Your profile has been successfully updated.',
+        });
   };
 
   return (
