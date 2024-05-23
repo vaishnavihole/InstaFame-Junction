@@ -1,7 +1,7 @@
 import React from 'react';
 import DealSmallCard from '../../components/DealSmallCard/DealSmallCard';
 
-function DealCard() {
+function MyDeals() {
   return (
     <div>
         <DealSmallCard />
@@ -9,4 +9,4 @@ function DealCard() {
   )
 }
 
-export default DealCard
+export default MyDeals;

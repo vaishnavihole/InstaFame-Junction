@@ -6,9 +6,9 @@ import './index.css';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import InfluncerCards from './views/InfluncerCards/InfluncerCards';
-import  DealCard from './views/DealCard/DealCard';
+import  MyDeals from './views/MyDeals/MyDeals';
 import AddNote from './views/AddNote/AddNote';
-import InfluncerDashboard from './views/InfluncerDashboard/InfluncerDashboard';
+import MyPackage from './views/MyPackage/MyPackage';
 import ContactUs from './views/ContactUs/ContactUs';
 import MyProfile from './views/MyProfile/MyProfile';
 import AddPackageForm from './views/AddPackageForm/AddPackageForm';
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/DealCard',
-    element: <DealCard/>
+    path: '/myDeals',
+    element: <MyDeals/>
   },
 
   {
@@ -43,8 +43,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/influncerDashboard',
-    element: <InfluncerDashboard/>
+    path: '/myPackage',
+    element: <MyPackage/>
   },
 
   {

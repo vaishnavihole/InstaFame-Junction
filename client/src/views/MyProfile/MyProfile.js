@@ -74,6 +74,7 @@ function MyProfile() {
         title: 'Profile Updated!',
         text: 'Your profile has been successfully updated.',
         });
+        window.location.href = '/influncerCards';
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './InfluncerDashboard.css';
+import './MyPackage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';

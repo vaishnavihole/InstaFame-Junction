@@ -92,8 +92,8 @@
   .menu-items li {
     margin-left: 0;
     width: 100%;
-    text-align: left; /* Align text to the left */
-    padding: 10px 20px; /* Add padding */
+    text-align: left; 
+    padding: 10px 20px; 
     border-bottom: 1px solid #333;
   }
 
@@ -108,7 +108,7 @@
   }
 }
 
-/* Ensure menu is visible when toggled */
+
 .menu-items.active {
   display: flex;
 }
