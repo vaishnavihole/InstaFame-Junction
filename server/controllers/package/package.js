@@ -51,7 +51,6 @@ const apiV1GetPackage = async (req, res) => {
     return res.status(200).json({ package: foundPackage });
 }
 
-
 const apiV1UpdatePackage = async (req, res) => {
     const { id } = req.params;
     const { packageName, description, price } = req.body;
@@ -74,6 +73,18 @@ const apiV1UpdatePackage = async (req, res) => {
     return res.status(200).json({ message: "Package updated successfully", package: updatedPackage });
 }
 
+const apiV1GetPackageByUserId = async (req, res) => {
+    const { userId } = req.params;
+    let packages;
 
+    try {
+        packages = await Package.find({ user: userId });
+    } catch (error) {
+        console.error("Error fetching packages:", error);
+        return res.status(500).json({ message: "Error fetching packages" });
+    }
 
-export { apiv1AddPackage, apiV1AllPackages, apiV1UpdatePackage,apiV1GetPackage };
+    return res.status(200).json({ packages });
+}
+
+export { apiv1AddPackage, apiV1AllPackages, apiV1UpdatePackage,apiV1GetPackage, apiV1GetPackageByUserId };

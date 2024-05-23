@@ -3,49 +3,23 @@ import './PackageSmallCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
-const PackageSmallCard = () => {
+const PackageSmallCard = ({ packageName, features, price }) => {
     return (
         <div className="card-container">
             <div className="package-card">
                 <div className="details">
-                    <h3 className="package-heading">Sliver</h3>
+                    <h3 className="package-heading">{packageName}</h3>
                     <ul className="feature-list">
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 1</li>
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 2</li>
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 3</li>
+                        {features.map((feature, index) => (
+                            <li key={index} className="feature-item">
+                                <FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> {feature}
+                            </li>
+                        ))}
                     </ul>
-                    <div className="price"> ₹100</div>
+                    <div className="price"> ₹{price}</div>
                     <button className="buy-now-btn">Buy Now</button>
                 </div>
             </div>
-
-            <div className="package-card">
-                <div className="details">
-                    <h3 className="package-heading">Gold</h3>
-                    <ul className="feature-list">
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 1</li>
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 2</li>
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 3</li>
-                    </ul>
-                    <div className="price"> ₹200</div>
-                    <button className="buy-now-btn">Buy Now</button>
-                </div>
-            </div>
-
-            <div className="package-card">
-                <div className="details">
-                    <h3 className="package-heading">Diamond</h3>
-                    <ul className="feature-list">
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 1</li>
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 2</li>
-                        <li className="feature-item"><FontAwesomeIcon icon={faCircleCheck} className="custom-icon" /> Feature 3</li>
-                    </ul>
-                    <div className="price"> ₹300</div>
-                    <button className="buy-now-btn">Buy Now</button>
-                </div>
-            </div>
-
-            
         </div>
     );
 };
