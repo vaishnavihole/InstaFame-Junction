@@ -8,7 +8,7 @@ import Login from './views/Login/Login';
 import InfluncerCards from './views/InfluncerCards/InfluncerCards';
 import  MyDeals from './views/MyDeals/MyDeals';
 import AddNote from './views/AddNote/AddNote';
-import MyPackage from './views/MyPackage/MyPackage';
+import MyPackage from './views/a/a';
 import ContactUs from './views/ContactUs/ContactUs';
 import MyProfile from './views/MyProfile/MyProfile';
 import AddPackageForm from './views/AddPackageForm/AddPackageForm';
