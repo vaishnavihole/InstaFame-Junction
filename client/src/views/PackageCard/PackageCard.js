@@ -14,7 +14,7 @@ const PackageCard = ({ userId }) => {
         setPackages(response.data.packages);
       } catch (err) {
         console.error("Error fetching packages:", err);
-        setError("Error fetching packages");
+       
       }
     };
 
@@ -25,11 +25,23 @@ const PackageCard = ({ userId }) => {
     return <div>{error}</div>;
   }
 
+  if (packages.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-      {packages.map((packageData) => (
-        <PackageSmallCard key={packageData._id} packageData={packageData} />
-      ))}
+      {packages.map((pkg) => {
+        const { packageName, features, price } = pkg;
+        return (
+          <PackageSmallCard
+            key={packageName} 
+            packageName={packageName}
+            features={features}
+            price={price}
+          />
+        );
+      })}
     </div>
   );
 };

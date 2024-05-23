@@ -25,7 +25,7 @@ const packageSchema = new Schema({
         type: String,
     }],
 
-    user: {
+    userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     }

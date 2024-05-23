@@ -34,12 +34,12 @@ const AddPackageForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userId = getUserId(); // Get the user ID
+    const userId = getUserId(); 
     try {
       const response = await axios.post('/api/v1/addPackage', {
-        userId: userId, // Pass user ID in the payload
+        userId: userId, 
         packageName: formData.packageName,
-        Feature: formData.features,
+        features: formData.features,
         price: formData.price,
       });
       Swal.fire({
@@ -47,6 +47,13 @@ const AddPackageForm = () => {
         title: 'Package Added!',
         text: 'Your package has been added successfully.',
       });
+
+      setFormData({
+        packageName: '',
+        features: [''],
+        price: '',
+      });
+
     } catch (error) {
       console.error('Error submitting form:', error);
       Swal.fire({

@@ -1,88 +1,91 @@
 .container {
-    position: relative; 
-  }
-  
-  .add-package-btn {
-    position: absolute; 
-    top: 10px;
-    right: 10px; 
-    background:linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
-    border-radius: 10px; 
-    cursor: pointer;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: 0.5s;
-    width: 200px;
-    border: none;
+  position: relative;
+  width: 100% !important;
+}
 
-  }
+.package-card-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: auto; 
+  white-space: nowrap;
+  
+}
 
-  .add-package-btn:hover {
-    border-radius: 30px; 
-  }
 
-  
-  .add-package-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .my-package-text {
-    display: inline-block;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-  }
-  
-  .my-package-text::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 4px;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    border-radius: 2px;
-  }
-  
-  
-  .my-deal-container {
-    text-align: center; /* Center align the content */
-  }
-  
-  .my-deal-text {
-    display: inline-block;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-  }
-  
-  .my-deal-text::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 4px;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    border-radius: 2px;
-  }
-  
+.add-package-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 20px;
+  transition: 0.5s;
+  width: 200px;
+  border: none;
+}
+
+.add-package-btn:hover {
+  border-radius: 30px;
+}
+
+.my-package-text {
+  margin-top: 20px;
+  display: inline-block;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.my-package-text::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 2px;
+}
+
+.my-deal-container {
+  text-align: center;
+}
+
+.my-deal-text {
+  display: inline-block;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.my-deal-text::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 2px;
+}
