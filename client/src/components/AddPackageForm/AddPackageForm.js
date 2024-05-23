@@ -13,7 +13,7 @@ const AddPackageForm = () => {
 
  
   const getUserId = () => {
-    return sessionStorage.getItem('_id');
+    return JSON.parse(sessionStorage.getItem('user'))._id;
   };
 
 
