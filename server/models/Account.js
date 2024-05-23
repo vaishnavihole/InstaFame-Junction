@@ -18,7 +18,7 @@ const accountSchema = new Schema({
         default: 0,
         min: 0
     },
-    user:{
+    userId:{
         type: Schema.Types.ObjectId,
         ref: 'User'
     }

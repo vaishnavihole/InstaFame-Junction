@@ -8,10 +8,11 @@ import Login from './views/Login/Login';
 import InfluncerCards from './views/InfluncerCards/InfluncerCards';
 import  MyDeals from './views/MyDeals/MyDeals';
 import AddNote from './views/AddNote/AddNote';
-import MyPackage from './views/a/a';
+import MyPackages from './views/MyPackages/MyPackages';
 import ContactUs from './views/ContactUs/ContactUs';
 import MyProfile from './views/MyProfile/MyProfile';
 import AddPackageForm from './views/AddPackageForm/AddPackageForm';
+import MyAccounts from './views/MyAccounts/MyAccounts';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -43,8 +44,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/myPackage',
-    element: <MyPackage/>
+    path: '/myPackages',
+    element: <MyPackages/>
   },
 
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: '/addPackageForm',
     element: <AddPackageForm/>
+  },
+  {
+    path: '/myAccounts',
+    element: <MyAccounts/>
   }
  
 ])

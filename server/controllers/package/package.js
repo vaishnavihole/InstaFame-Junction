@@ -79,7 +79,7 @@ const apiV1GetPackageByUserId = async (req, res) => {
     let packages;
 
     try {
-        packages = await Package.find({ user: userId });
+        packages = await Package.find({ userId: userId });
     } catch (error) {
         console.error("Error fetching packages:", error);
         return res.status(500).json({ message: "Error fetching packages" });
