@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddPackageForm.css';
@@ -11,11 +10,9 @@ const AddPackageForm = () => {
     price: '',
   });
 
- 
   const getUserId = () => {
     return JSON.parse(sessionStorage.getItem('user'))._id;
   };
-
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
@@ -48,6 +45,8 @@ const AddPackageForm = () => {
         text: 'Your package has been added successfully.',
       });
 
+      window.location.href = '/influncerDashboard';
+
       setFormData({
         packageName: '',
         features: [''],
@@ -65,45 +64,48 @@ const AddPackageForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="packageName">Package Name:</label>
-        <input className='add-package-input'
-          type="text"
-          id="packageName"
-          name="packageName"
-          value={formData.packageName}
-          onChange={(e) => handleChange(e)}
-          required
-        />
-      </div>
-      {formData.features.map((feature, index) => (
-        <div key={index}>
-          <label htmlFor={`feature${index}`}>Package Feature {index + 1}:</label>
+    <div>
+      <div className='add-package-text'>Add Package Form</div> 
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="packageName">Package Name:</label>
           <input className='add-package-input'
             type="text"
-            id={`feature${index}`}
-            name="features"
-            value={feature}
-            onChange={(e) => handleChange(e, index)}
+            id="packageName"
+            name="packageName"
+            value={formData.packageName}
+            onChange={(e) => handleChange(e)}
             required
           />
         </div>
-      ))}
-      <button type="button" className="add-feature-btn" onClick={handleAddFeature}>Add Another Feature</button>
-      <div>
-        <label htmlFor="price">Price:</label>
-        <input className='add-package-input'
-          type="text"
-          id="price"
-          name="price"
-          value={formData.price}
-          onChange={(e) => handleChange(e)}
-          required
-        />
-      </div>
-      <button type="submit" className='add-package-button'>Add Package</button>
-    </form>
+        {formData.features.map((feature, index) => (
+          <div key={index}>
+            <label htmlFor={`feature${index}`}>Package Feature {index + 1}:</label>
+            <input className='add-package-input'
+              type="text"
+              id={`feature${index}`}
+              name="features"
+              value={feature}
+              onChange={(e) => handleChange(e, index)}
+              required
+            />
+          </div>
+        ))}
+        <button type="button" className="add-feature-btn" onClick={handleAddFeature}>Add Another Feature</button>
+        <div>
+          <label htmlFor="price">Price:</label>
+          <input className='add-package-input'
+            type="text"
+            id="price"
+            name="price"
+            value={formData.price}
+            onChange={(e) => handleChange(e)}
+            required
+          />
+        </div>
+        <button type="submit" className='add-package-button'>Add Package</button>
+      </form>
+    </div>
   );
 };
 

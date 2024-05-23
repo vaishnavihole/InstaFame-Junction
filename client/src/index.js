@@ -6,7 +6,6 @@ import './index.css';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import InfluncerCards from './views/InfluncerCards/InfluncerCards';
-import PackageCard from './views/PackageCard/PackageCard';
 import  DealCard from './views/DealCard/DealCard';
 import AddNote from './views/AddNote/AddNote';
 import InfluncerDashboard from './views/InfluncerDashboard/InfluncerDashboard';
@@ -31,11 +30,6 @@ const router = createBrowserRouter([
   {
     path: '/influncerCards',
     element: <InfluncerCards/>
-  },
-
-  {
-    path: '/packageCard',
-    element: <PackageCard/>
   },
 
   {

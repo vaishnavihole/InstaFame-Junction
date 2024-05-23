@@ -9,7 +9,7 @@
   width: 100%;
   overflow-x: auto; 
   white-space: nowrap;
-  
+
 }
 
 
@@ -88,4 +88,12 @@
   height: 4px;
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   border-radius: 2px;
+}
+
+.add-package-text{
+  color: #2196c4;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
 }

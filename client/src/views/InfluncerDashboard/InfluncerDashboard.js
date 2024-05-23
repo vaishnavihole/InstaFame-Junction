@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './InfluncerDashboard.css';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import PackageSmallCard from '../../components/PackageSmallCard/PackageSmallCard';
@@ -39,9 +40,11 @@ const InfluencerDashboard = () => {
     <div>
       <Navbar />
       <div className="container">
-        <button className="add-package-btn">
+       <Link to="/addPackageForm">
+       <button className="add-package-btn">
           Add Package
         </button>
+       </Link>
         <div className='my-package-text'>My Package</div>
         <div className='package-card-container  hide-scrollbar'>
           {packages.map((pkg) => {
