@@ -20,6 +20,15 @@ const packageSchema = new Schema({
     headerImage:{
         type: String,
     },
+
+    features: [{
+        type: String,
+    }],
+
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
     
 }, {
     timestamps: true

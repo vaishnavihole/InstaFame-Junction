@@ -1,16 +1,16 @@
 import Package from "../../models/Package.js";
 
 const apiv1AddPackage = async (req, res) => {
-    const { packageName, description, price } = req.body;
+    const { packageName, Feature, price } = req.body;
 
-    if (!packageName || !description || !price) {
+    if (!packageName || !Feature || !price) {
         return res.status(400).json({ message: "Please provide all fields" });
     }
 
     let newPackage;
 
     try {
-        newPackage = new Package({ packageName, description, price });
+        newPackage = new Package({ packageName, Feature, price });
         await newPackage.save();
     } catch (error) {
         console.error("Error saving package:", error);

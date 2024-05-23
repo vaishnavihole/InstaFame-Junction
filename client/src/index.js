@@ -12,6 +12,7 @@ import AddNote from './views/AddNote/AddNote';
 import InfluncerDashboard from './views/InfluncerDashboard/InfluncerDashboard';
 import ContactUs from './views/ContactUs/ContactUs';
 import MyProfile from './views/MyProfile/MyProfile';
+import AddPackage from './views/AddPackage/AddPackage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -65,6 +66,11 @@ const router = createBrowserRouter([
   {
     path: '/contactUs',
     element: <ContactUs/>
+  },
+
+  {
+    path: '/addPackage',
+    element: <AddPackage/>
   }
  
 ])

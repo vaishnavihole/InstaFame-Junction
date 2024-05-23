@@ -6,15 +6,15 @@
     position: absolute; 
     top: 10px;
     right: 10px; 
-    background:linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);;  
-    border: 1px solid black;
+    background:linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
     border-radius: 10px; 
     cursor: pointer;
     color: white;
     padding: 10px 20px;
     cursor: pointer;
     transition: 0.5s;
-   width: 200px;
+    width: 200px;
+    border: none;
 
   }
 
