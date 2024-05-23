@@ -8,52 +8,54 @@
   width: 300px; /* Adjust as per your requirement */
   background-color: #f9f9f9;
   border-radius: 20px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  position: relative; /* Needed for absolute positioning */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  padding: 20px;
+  position: relative; /* Needed for absolute positioning */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .package-card:hover {
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 }
 
-.user-left {
+.user-left,
+.user-right {
   position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 22px;
+  top: 10px;
+}
+
+.user-left {
+  left: 10px;
 }
 
 .user-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-right: 22px;
+  right: 10px;
 }
 
 .user-image {
-  width: 50px; 
-  height: 50px; /* Adjust as per your requirement */
+  width: 50px;
+  height: 50px;
   border-radius: 50%; /* Make the image rounded */
   transition: transform 0.3s ease; /* Smooth transition */
-  border: 0.5 solid transparent;
-  margin-top: 10px;
+  border: 0.5px solid transparent;
 }
 
 .user-image:hover {
-  transform: scale(1.1); 
-  border: 0.5 solid black;
+  transform: scale(1.1);
+  border: 0.5px solid black;
 }
 
 .shakhand-icon {
-  position: absolute !important;
-  margin-left: 110px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .shakhand-icon-img {
   font-size: 40px;
-  animation: shake 0.5s infinite alternate; 
+  animation: shake 0.5s infinite alternate;
 }
 
 @keyframes shake {
@@ -65,59 +67,49 @@
   }
 }
 
-.details{
-  margin-top: 80px;
+.details {
+  text-align: center;
 }
 
 .price-text {
   font-size: 24px; /* Increase font size */
   font-family: Arial, sans-serif; /* Change font family */
-  color:  #2196c4; /* Change the color */
-  text-align: center; /* Center the text */
-  margin-left: 90px;
+  color: #2196c4; /* Change the color */
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.date-text{
+.date-text {
   font-size: 18px; /* Increase font size */
   font-family: Arial, sans-serif; /* Change font family */
-  text-align: center; /* Center the text */
-  margin-left: 90px;
   margin-bottom: 5px;
 }
 
-.note-text{
+.note-text {
   font-size: 18px; /* Increase font size */
   font-family: Arial, sans-serif; /* Change font family */
-  text-align: center; /* Center the text */
-  margin-left: 90px;
 }
 
 /* Styles for mobile */
 @media screen and (max-width: 600px) {
   .package-card {
-    width: 80%; /* Adjust width for smaller screens */
+    width: 100%; /* Adjust width for smaller screens */
     margin: 20px auto; /* Center the card */
     padding: 10px; /* Adjust padding */
   }
 
   .user-left, .user-right {
     position: static; /* Reset positioning */
-    margin: 0 auto; /* Center the user images */
-  }
-
-  .user-right {
-    margin-top: 20px; /* Add spacing between user images */
+    margin: 0 auto 10px auto; /* Center the user images */
   }
 
   .shakhand-icon {
-    position: relative; /* Reset positioning */
-    margin: 20px auto; /* Center the icon */
+    position: static; /* Reset positioning */
+    margin: 10px auto; /* Center the icon */
   }
 
   .details {
-    margin-top: 20px; /* Adjust margin */
+    margin-top: 10px; /* Adjust margin */
   }
 
   .price-text, .date-text, .note-text {
