@@ -24,5 +24,4 @@ const DealSmallCard = () => {
     </div>
   );
 };
-
 export default DealSmallCard;

@@ -1,7 +1,13 @@
-import React from 'react';
-import './Navbar.css'; // You can create a CSS file for styling
+import React, { useState } from 'react';
+import './Navbar.css'; // Make sure the CSS file is correctly imported
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -10,11 +16,14 @@ const Navbar = () => {
           {/* <img src="logo.png" alt="Logo" /> */}
         </div>
         <div className="brand-name">
-         InstaFame Junction
+          InstaFame Junction
         </div>
       </div>
       <div className="navbar-right">
-        <ul className="menu-items">
+        <div className="menu-toggle" onClick={toggleMenu}>
+          <i className="fa fa-bars"></i>
+        </div>
+        <ul className={`menu-items ${isMenuOpen ? 'active' : ''}`}>
           <li><a href="/">Home</a></li>
           <li><a href="/contactUs">Contact</a></li>
           <li><a href="/myProfile">My Profile</a></li>
