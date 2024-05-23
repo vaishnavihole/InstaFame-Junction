@@ -109,7 +109,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           {!isLogin && (
             <div className="form-group-signup">
-              <input
+              <input className='signup-box'
                 type="text"
                 placeholder="Name"
                 value={name}
@@ -120,7 +120,7 @@ const Login = () => {
           )}
           {!isLogin && (
             <div className="form-group-signup">
-              <input
+              <input className='signup-box'
                 type="tel"
                 placeholder="Mobile"
                 value={mobile}
@@ -131,7 +131,7 @@ const Login = () => {
           )}
           {!isLogin && (
             <div className="form-group-signup">
-              <input
+              <input className='signup-box'
                 type="text"
                 placeholder="City"
                 value={city}
@@ -141,7 +141,7 @@ const Login = () => {
             </div>
           )}
           <div className="form-group-signup">
-            <input
+            <input className='signup-box'
               type="email"
               placeholder="Email"
               value={email}
@@ -151,7 +151,7 @@ const Login = () => {
           </div>
           <div className="form-group-signup">
             {isLogin ? (
-              <input
+              <input className='signup-box'
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -159,7 +159,7 @@ const Login = () => {
                 required
               />
             ) : (
-              <input
+              <input className='signup-box'
                 type="password"
                 placeholder="Signup Password"
                 value={signupPassword}

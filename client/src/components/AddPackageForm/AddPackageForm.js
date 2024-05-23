@@ -61,7 +61,7 @@ const AddPackageForm = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="packageName">Package Name:</label>
-        <input
+        <input className='add-package-input'
           type="text"
           id="packageName"
           name="packageName"
@@ -73,7 +73,7 @@ const AddPackageForm = () => {
       {formData.features.map((feature, index) => (
         <div key={index}>
           <label htmlFor={`feature${index}`}>Package Feature {index + 1}:</label>
-          <input
+          <input className='add-package-input'
             type="text"
             id={`feature${index}`}
             name="features"
@@ -86,7 +86,7 @@ const AddPackageForm = () => {
       <button type="button" className="add-feature-btn" onClick={handleAddFeature}>Add Another Feature</button>
       <div>
         <label htmlFor="price">Price:</label>
-        <input
+        <input className='add-package-input'
           type="text"
           id="price"
           name="price"
