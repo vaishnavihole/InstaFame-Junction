@@ -98,9 +98,11 @@ const apiV1GetInfluencerUsers = async (req, res) => {
     const influencers = []
 
     const users = await User.find({ role: 'influencer' });
+    console.log(users);
 
     for(const user of users){
-      const userAccounts = await Account.find({user: user._id});
+      const userAccounts = await Account.find({userId: user._id});
+      console.log(userAccounts);
       
       influencers.push({
         ...user._doc,

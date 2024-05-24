@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AddAccountForm.css';
 import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer'
 import axios from 'axios';
 import swal from 'sweetalert2';
 
@@ -109,6 +110,7 @@ function AddAccountForm() {
           <button type="submit" className="form-submit-button">Add Account</button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }

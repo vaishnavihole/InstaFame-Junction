@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './AddNote.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+
 
 const AddNote = () => {
   const [note, setNote] = useState('');
@@ -11,6 +14,8 @@ const AddNote = () => {
   };
 
   return (
+    <div>
+      <Navbar />
     <div className='container'>
         <div>
           <div className='deal-quotes'>This is the final step. Please confirm your deal!!</div>
@@ -28,6 +33,8 @@ const AddNote = () => {
         <button onClick={handleConfirm} className='confirm-button'>Confirm</button>
       </div>
       {confirmed && <p className='confirmation-message'>Your Deal has been confirmed!</p>}
+    </div>
+    <Footer />
     </div>
   );
 };

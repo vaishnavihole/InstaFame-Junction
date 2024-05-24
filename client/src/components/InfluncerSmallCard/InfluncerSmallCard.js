@@ -1,6 +1,6 @@
 import React from 'react';
 import './InfluncerSmallCard.css';
-import { FaInstagram, FaYoutube, FaTwitter, FaFacebook, FaLinkedin} from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import defaultAvatarUrl from './user.png';
 
 const AccountTypeIcon = ({ accountType }) => {
@@ -16,6 +16,7 @@ const AccountTypeIcon = ({ accountType }) => {
     case 'linkedin':
       return <FaLinkedin size={20} />;
     default:
+      return null;
   }
 };
 
@@ -30,7 +31,9 @@ function InfluncerSmallCard({ handle, accountType, followers, subscribers, name,
         <div className='social-container'>
           <AccountTypeIcon accountType={accountType} />
           <p className='account-name'>{handle}</p>
-          <p className='account-followers'>{followers ? `followers ${followers}` : `subscribers ${subscribers}`}</p>
+          <p className='account-followers'>
+            {followers ? `Followers: ${followers}` : `Subscribers: ${subscribers}`}
+          </p>
         </div>
       </div>
     </div>

@@ -1,9 +1,14 @@
 import React from 'react';
 import './ContactUs.css';
 import contactimg from './contactImg.png';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+
 
 function ContactUs() {
   return (
+    <>
+    <Navbar />
     <div className="contact-container">
       <div className="contact-image">
         <img src={contactimg} alt="Contact Us" />
@@ -27,6 +32,8 @@ function ContactUs() {
         </form>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
 

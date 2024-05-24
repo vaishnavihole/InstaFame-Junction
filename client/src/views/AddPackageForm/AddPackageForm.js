@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddPackageForm.css';
 import Swal from 'sweetalert2';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+
+
 
 const AddPackageForm = () => {
   const [formData, setFormData] = useState({
@@ -65,6 +69,7 @@ const AddPackageForm = () => {
 
   return (
     <div>
+      <Navbar />
       <div className='add-package-text'>Add Package Form</div> 
       <form onSubmit={handleSubmit}>
         <div>
@@ -105,7 +110,9 @@ const AddPackageForm = () => {
         </div>
         <button type="submit" className='add-package-button'>Add Package</button>
       </form>
+      <Footer />
     </div>
+    
   );
 };
 
