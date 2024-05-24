@@ -3,6 +3,7 @@ import './MyPackages.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 import PackageSmallCard from '../../components/PackageSmallCard/PackageSmallCard';
 import DealSmallCard from '../../components/DealSmallCard/DealSmallCard';
 
@@ -65,6 +66,7 @@ const MyPackages = () => {
         <div className='my-deal-text'>My Deal</div>
         <DealSmallCard />
       </div>
+      <Footer />  
     </div>
   );
 };

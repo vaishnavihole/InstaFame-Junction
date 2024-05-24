@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './MyProfile.css';
 import Swal from 'sweetalert2';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 function MyProfile() {
   const [profilePictureUrl, setProfilePictureUrl] = useState('');
@@ -78,6 +80,8 @@ function MyProfile() {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="profile-edit-container">
       <h2 className='edit-profile-text'>Edit Profile</h2>
       <form className="profile-edit-form" onSubmit={handleSubmit}>
@@ -105,6 +109,8 @@ function MyProfile() {
         <button type="submit" className="update-profile">Update Profile</button>
       </form>
     </div>
+    <Footer />
+    </>
   );
 }
 

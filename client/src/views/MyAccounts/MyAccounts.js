@@ -3,6 +3,7 @@ import axios from 'axios';
 import './MyAccounts.css';
 import UserAccounts from '../../components/UserAccounts/UserAccounts';
 import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
 
 function MyAccounts() {
@@ -62,6 +63,7 @@ function MyAccounts() {
           <div>No accounts found</div>
         )}
       </div>
+      <Footer />
     </div>
   );
 }
