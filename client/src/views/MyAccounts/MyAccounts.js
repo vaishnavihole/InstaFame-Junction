@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './MyAccounts.css';
 import InfluncerSmallCard from '../../components/InfluncerSmallCard/InfluncerSmallCard';
+import Navbar from '../../components/Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 function MyAccounts() {
   const temp = sessionStorage.getItem('user');
@@ -33,6 +36,12 @@ function MyAccounts() {
 
   return (
     <div>
+      <Navbar />
+      <div className="button-container">
+        <Link to="/add-account">
+          <button className="add-account-button">Add Account</button>
+        </Link>
+      </div>
       {accounts.length ? (
         accounts.map((account) => {
           const { handle, accountType, followers, subscribers, name, profileImage } = account;
