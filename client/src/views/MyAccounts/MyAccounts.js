@@ -38,7 +38,9 @@ function MyAccounts() {
     <div>
       <Navbar />
       <div className="button-container">
-        <button className="add-account-button">Add Account</button>
+        <Link to="/addAccountForm">
+          <button className="add-account-btn">Add Account</button>
+        </Link>
       </div>
       <div className="user-cards-container">
         {accounts.length ? (

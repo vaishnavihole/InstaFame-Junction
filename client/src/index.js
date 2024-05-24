@@ -13,6 +13,7 @@ import ContactUs from './views/ContactUs/ContactUs';
 import MyProfile from './views/MyProfile/MyProfile';
 import AddPackageForm from './views/AddPackageForm/AddPackageForm';
 import MyAccounts from './views/MyAccounts/MyAccounts';
+import AddAccountForm from './views/AddAccountForm/AddAccountForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
   {
     path: '/myAccounts',
     element: <MyAccounts/>
+  },
+  {
+    path: '/addAccountForm',
+    element: <AddAccountForm/>
   }
  
 ])

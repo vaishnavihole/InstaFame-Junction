@@ -6,11 +6,11 @@ import Navbar from '../../components/Navbar/Navbar';
 import PackageSmallCard from '../../components/PackageSmallCard/PackageSmallCard';
 import DealSmallCard from '../../components/DealSmallCard/DealSmallCard';
 
-const InfluencerDashboard = () => {
+const MyPackages = () => {
   const temp = sessionStorage.getItem('user');
-  const user = JSON.parse(temp);
+  const user = temp ? JSON.parse(temp) : null; // Add null check here
 
-  const userId = user._id;
+  const userId = user ? user._id : null; // Add null check here
 
   const [packages, setPackages] = useState([]);
   const [error, setError] = useState(null);
@@ -40,11 +40,11 @@ const InfluencerDashboard = () => {
     <div>
       <Navbar />
       <div className="container">
-       <Link to="/addPackageForm">
-       <button className="add-package-btn">
-          Add Package
-        </button>
-       </Link>
+        <Link to="/addPackageForm">
+          <button className="add-package-btn">
+            Add Package
+          </button>
+        </Link>
         <div className='my-package-text'>My Package</div>
         <div className='package-card-container  hide-scrollbar'>
           {packages.map((pkg) => {
@@ -69,4 +69,4 @@ const InfluencerDashboard = () => {
   );
 };
 
-export default InfluencerDashboard;
+export default MyPackages;
