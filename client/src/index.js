@@ -14,6 +14,7 @@ import MyProfile from './views/MyProfile/MyProfile';
 import AddPackageForm from './views/AddPackageForm/AddPackageForm';
 import MyAccounts from './views/MyAccounts/MyAccounts';
 import AddAccountForm from './views/AddAccountForm/AddAccountForm';
+import InfluncerDasboard from './views/InfluncerDasboard/InfluncerDasboard';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
   {
     path: '/addAccountForm',
     element: <AddAccountForm/>
+  },
+  {
+    path:'/influncerDasboard',
+    element:<InfluncerDasboard/>
   }
  
 ])
