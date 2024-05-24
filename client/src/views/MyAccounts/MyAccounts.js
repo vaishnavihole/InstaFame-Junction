@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './MyAccounts.css';
-import InfluncerSmallCard from '../../components/InfluncerSmallCard/InfluncerSmallCard';
+import UserAccounts from '../../components/UserAccounts/UserAccounts';
 import Navbar from '../../components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 
@@ -38,28 +38,28 @@ function MyAccounts() {
     <div>
       <Navbar />
       <div className="button-container">
-        <Link to="/add-account">
-          <button className="add-account-button">Add Account</button>
-        </Link>
+        <button className="add-account-button">Add Account</button>
       </div>
-      {accounts.length ? (
-        accounts.map((account) => {
-          const { handle, accountType, followers, subscribers, name, profileImage } = account;
-          return (
-            <InfluncerSmallCard
-              key={handle}
-              handle={handle}
-              accountType={accountType}
-              followers={followers}
-              subscribers={subscribers}
-              name={name}
-              profileImage={profileImage}
-            />
-          );
-        })
-      ) : (
-        <div>No accounts found</div>
-      )}
+      <div className="user-cards-container">
+        {accounts.length ? (
+          accounts.map((account) => {
+            const { handle, accountType, followers, subscribers, name, profileImage } = account;
+            return (
+              <UserAccounts
+                key={handle}
+                handle={handle}
+                accountType={accountType}
+                followers={followers}
+                subscribers={subscribers}
+                name={name}
+                profileImage={profileImage}
+              />
+            );
+          })
+        ) : (
+          <div>No accounts found</div>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './InfluncerSmallCard.css';
-import { FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaTwitter, FaFacebook, FaLinkedin} from 'react-icons/fa';
 import defaultAvatarUrl from './user.png';
 
 const AccountTypeIcon = ({ accountType }) => {
@@ -11,8 +11,11 @@ const AccountTypeIcon = ({ accountType }) => {
       return <FaYoutube size={20} />;
     case 'twitter':
       return <FaTwitter size={20} />;
+    case 'facebook':
+      return <FaFacebook size={20} />;
+    case 'linkedin':
+      return <FaLinkedin size={20} />;
     default:
-      return null;
   }
 };
 
