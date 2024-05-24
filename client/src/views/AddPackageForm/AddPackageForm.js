@@ -45,7 +45,7 @@ const AddPackageForm = () => {
         text: 'Your package has been added successfully.',
       });
 
-      window.location.href = '/influncerDashboard';
+      window.location.href = '/myPackages';
 
       setFormData({
         packageName: '',
