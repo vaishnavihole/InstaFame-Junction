@@ -2,10 +2,7 @@
 .login-signup-container {
     max-width: 400px;
     margin: 100px auto;
-    padding: 40px;
-    border-radius: 10px;
-    background-color: #f8f9fa;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 5px;
     text-align: center;
   }
   
@@ -64,7 +61,7 @@
 
   
   .form-group-signup {
-    margin-bottom: 10px; /* Adjust as needed */
+    margin-bottom: 10px; 
   }
   
   .form-group-signup label {
@@ -109,7 +106,7 @@
     width: 100px; 
     height: auto; 
     border-radius: 50px;
-    animation: spin 2s linear infinite; /* Apply animation */
+    animation: spin 2s linear infinite; 
   }
   
   .eye-image {
