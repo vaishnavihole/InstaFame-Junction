@@ -4,3 +4,8 @@
     justify-content: space-evenly;
     flex-direction: row;
 }
+
+.link-style {
+    text-decoration: none;
+   
+  }

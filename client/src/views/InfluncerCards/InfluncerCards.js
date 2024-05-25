@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import InfluncerSmallCard from '../../components/InfluncerSmallCard/InfluncerSmallCard';
 import axios from 'axios';
 import './InfluncerCards.css';
@@ -29,15 +30,17 @@ function InfluncerCards() {
         {influencers.map(influencer => {
           const { _id, name, accounts, profileImage } = influencer;
           return accounts.map(account => (
-            <InfluncerSmallCard 
-              key={account._id} 
-              name={name} 
-              handle={account.handle} 
-              accountType={account.accountType} 
-              followers={account.followers} 
-              subscribers={account.subscribers} 
-              profileImage={profileImage} 
-            />
+            <Link key={_id} to={`/influncerPackages/${_id}`} className="link-style">
+              <InfluncerSmallCard 
+                key={account._id} 
+                name={name} 
+                handle={account.handle} 
+                accountType={account.accountType} 
+                followers={account.followers} 
+                subscribers={account.subscribers} 
+                profileImage={profileImage} 
+              />
+            </Link>
           ));
         })}
       </div>
