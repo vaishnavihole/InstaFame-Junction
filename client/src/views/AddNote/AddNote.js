@@ -35,6 +35,7 @@ const AddNote = () => {
       {confirmed && <p className='confirmation-message'>Your Deal has been confirmed!</p>}
     </div>
     <Footer />
+    
     </div>
   );
 };
