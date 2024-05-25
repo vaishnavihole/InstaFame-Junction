@@ -1,14 +1,18 @@
 import Deal from '../../models/Deal.js';
+import User from '../../models/User.js';
+import Package from '../../models/Package.js';
 
 const apiv1AddDeal = async (req, res) => {
     try {
         const { amount, note, userId } = req.body;
 
-        if (!amount || !note  || !userId) {
+        console.log("Request body:", req.body);
+
+        if (!amount || !note || !userId) {
             return res.status(400).json({ message: "Please provide all fields" });
         }
 
-        const newDeal = new Deal({ amount, note,  user: userId });
+        const newDeal = new Deal({ amount, note, userId });
         await newDeal.save();
 
         return res.status(201).json({ message: "Deal created successfully", deal: newDeal });
@@ -30,7 +34,7 @@ const apiV1AllDeals = async (req, res) => {
 
     return res.status(200).json({ deals });
 };
-5
+
 const apiV1GetDeal = async (req, res) => {
     const { id } = req.params;
     let deal;
@@ -73,6 +77,31 @@ const apiV1UpdateDeal = async (req, res) => {
     }
 };
 
+const apiV1GetDealByUserId = async (req, res) => {
+    const { userId } = req.params;
+    console.log("UserId:", userId);
+
+    const user = await User.findById(userId);
+
+    const userRole = user.role;
+    console.log("User role:", userRole);
+
+    console.log("Fetching deals for userId:", userId);
+    let deals;
+
+    if(userRole === 'influencer'){
+        const influencerPackages = await Package.find({userId: userId});
+        const packageIds = influencerPackages.map(pkg => pkg._id);
+
+        deals = await Deal.find({packageId: {$in: packageIds}});
+    }
+    else{
+        deals = await Deal.find({userId: userId});
+    }
+
+    return res.status(200).json({ deals });
+};
 
 
-export { apiv1AddDeal,apiV1AllDeals, apiV1GetDeal, apiV1UpdateDeal};
+
+export { apiv1AddDeal,apiV1AllDeals, apiV1GetDeal, apiV1UpdateDeal, apiV1GetDealByUserId};

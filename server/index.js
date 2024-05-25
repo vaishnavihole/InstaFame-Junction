@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import {apiV1Signup, apiV1Login, apiV1Update, apiV1AllUsers, apiV1GetUser,apiV1GetInfluencerUsers} from "./controllers/user/user.js";
 import {apiv1AddAccount,  apiV1AllAccounts, apiV1GetAccountsByUserId, apiV1UpdateAccount} from "./controllers/account/account.js";
 import {apiv1AddPackage, apiV1AllPackages, apiV1UpdatePackage,  apiV1GetPackage, apiV1GetPackageByUserId} from "./controllers/package/package.js";
-import {apiv1AddDeal, apiV1AllDeals, apiV1GetDeal, apiV1UpdateDeal} from "./controllers/deal/deal.js";
+import {apiv1AddDeal, apiV1AllDeals, apiV1GetDeal, apiV1UpdateDeal, apiV1GetDealByUserId} from "./controllers/deal/deal.js";
 import uploadCloudinary from './utils/cloudinary.js';
 import fs from 'fs';
 import multer from 'multer';
@@ -69,6 +69,7 @@ app.post("/api/v1/addDeal", apiv1AddDeal);
 app.get("/api/v1/getAllDeals", apiV1AllDeals);
 app.get("/api/v1/getDeal/:id", apiV1GetDeal);
 app.put("/api/v1/updateDeal/:id", apiV1UpdateDeal);
+app.get("/api/v1/getDealsByUserId/:userId", apiV1GetDealByUserId);
 
 const PORT = process.env.PORT || 5000;
 

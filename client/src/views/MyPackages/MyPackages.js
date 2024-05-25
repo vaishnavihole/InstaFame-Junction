@@ -9,9 +9,9 @@ import DealSmallCard from '../../components/DealSmallCard/DealSmallCard';
 
 const MyPackages = () => {
   const temp = sessionStorage.getItem('user');
-  const user = temp ? JSON.parse(temp) : null; // Add null check here
+  const user = temp ? JSON.parse(temp) : null; 
 
-  const userId = user ? user._id : null; // Add null check here
+  const userId = user ? user._id : null; 
 
   const [packages, setPackages] = useState([]);
   const [error, setError] = useState(null);

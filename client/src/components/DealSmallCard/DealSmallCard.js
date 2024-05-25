@@ -2,7 +2,7 @@ import React from 'react';
 import './DealSmallCard.css';
 import userImageLeft from './user.png';
 
-const DealSmallCard = () => {
+const DealSmallCard = ({ price, date, note }) => {
   return (
     <div className="card-container">
       <div className="package-card">
@@ -16,12 +16,13 @@ const DealSmallCard = () => {
           <img className="user-image" src={userImageLeft} alt="Right User" />
         </div>
         <div className="details">
-          <div className="price-text">$100</div>
-          <div className="date-text">12/3/2024</div>
-          <div className="note-text">This is Deal</div>
+          <div className="price-text">{price}</div>
+          <div className="date-text">{date}</div>
+          <div className="note-text">{note}</div>
         </div>
       </div>
     </div>
   );
 };
+
 export default DealSmallCard;

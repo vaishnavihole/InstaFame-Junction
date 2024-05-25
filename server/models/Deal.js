@@ -13,7 +13,7 @@ const dealSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Package'
     },
-    user: {
+    userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
