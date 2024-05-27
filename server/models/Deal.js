@@ -8,7 +8,7 @@ const dealSchema = new Schema({
         type: String,
         required: true
     },
-    package: {
+    packageId: {
         type: Schema.Types.ObjectId,
         ref: 'Package'
     },

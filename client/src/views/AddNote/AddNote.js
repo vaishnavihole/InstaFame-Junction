@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AddNote.css';
+import { useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Swal from 'sweetalert2';
@@ -8,6 +9,8 @@ import Swal from 'sweetalert2';
 const AddNote = () => {
   const [note, setNote] = useState('');
   const [userId, setUserId] = useState(null);
+
+  const { packageId } = useParams();
 
   useEffect(() => {
     const temp = sessionStorage.getItem('user');
@@ -28,7 +31,7 @@ const AddNote = () => {
     }
 
     try {
-      await axios.post('/api/v1/addDeal', { note, userId });
+      await axios.post(`/api/v1/addDeal/${packageId}`, { note, userId });
       Swal.fire({
         icon: 'success',
         title: 'Deal created successfully',

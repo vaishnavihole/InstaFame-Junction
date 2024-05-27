@@ -65,7 +65,7 @@ app.get("/api/v1/getPackage/:id", apiV1GetPackage);
 app.get("/api/v1/getPackageByUserId/:userId", apiV1GetPackageByUserId);
 app.put("/api/v1/updatePackage/:id", apiV1UpdatePackage);
 
-app.post("/api/v1/addDeal", apiv1AddDeal);
+app.post("/api/v1/addDeal/:packageId", apiv1AddDeal);
 app.get("/api/v1/getAllDeals", apiV1AllDeals);
 app.get("/api/v1/getDeal/:id", apiV1GetDeal);
 app.put("/api/v1/updateDeal/:id", apiV1UpdateDeal);
