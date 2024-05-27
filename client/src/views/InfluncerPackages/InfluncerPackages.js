@@ -34,9 +34,11 @@ function InfluncerPackages() {
       {packages.map((pkg, index) => (
         <div key={index}>
           <PackageSmallCard
+            _id={pkg._id}
             packageName={pkg.packageName}
             features={pkg.features}
             price={pkg.price}
+            showLink={true}
           />
         </div>
       ))}

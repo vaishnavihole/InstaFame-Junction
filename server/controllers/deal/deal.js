@@ -4,15 +4,15 @@ import Package from '../../models/Package.js';
 
 const apiv1AddDeal = async (req, res) => {
     try {
-        const { amount, note, userId } = req.body;
+        const { note, userId } = req.body;
 
         console.log("Request body:", req.body);
 
-        if (!amount || !note || !userId) {
+        if (  !note || !userId) {
             return res.status(400).json({ message: "Please provide all fields" });
         }
 
-        const newDeal = new Deal({ amount, note, userId });
+        const newDeal = new Deal({  note, userId });
         await newDeal.save();
 
         return res.status(201).json({ message: "Deal created successfully", deal: newDeal });

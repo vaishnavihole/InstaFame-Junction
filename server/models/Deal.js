@@ -3,7 +3,6 @@ import { Schema, model } from "mongoose";
 const dealSchema = new Schema({
     amount: {
         type: Number,
-        required: true
     },
     note: {
         type: String,

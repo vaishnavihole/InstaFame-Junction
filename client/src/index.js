@@ -42,7 +42,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/addNote',
+    path: '/addNote/:packageId',
     element: <AddNote/>
   },
 

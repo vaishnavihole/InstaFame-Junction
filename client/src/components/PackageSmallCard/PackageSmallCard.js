@@ -2,8 +2,9 @@ import React from 'react';
 import './PackageSmallCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
-const PackageSmallCard = ({ packageName, features, price }) => {
+const PackageSmallCard = ({_id, packageName, features, price, showLink }) => {
   if (!Array.isArray(features) || features.length === 0) {
     return null; // Don't render the card if there are no features
   }
@@ -21,7 +22,15 @@ const PackageSmallCard = ({ packageName, features, price }) => {
             ))}
           </ul>
           <div className="price">₹{price}</div>
-          <button className="buy-now-btn">Buy Now</button>
+          {
+            showLink ? 
+            <Link to={`/addNote/${_id}`} >
+            <button className="buy-now-btn">
+              Buy Now
+            </button>
+            </Link> : null
+          }
+        
         </div>
       </div>
     </div>
