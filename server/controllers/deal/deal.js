@@ -13,7 +13,9 @@ const apiv1AddDeal = async (req, res) => {
             return res.status(400).json({ message: "Please provide all fields" });
         }
 
-        const newDeal = new Deal({ note, userId, packageId });
+        const dealPackage = await Package.findById(packageId);
+
+        const newDeal = new Deal({ note, userId, packageId, amount: dealPackage.price });
         await newDeal.save();
 
         return res.status(201).json({ message: "Deal created successfully", deal: newDeal });
@@ -94,10 +96,10 @@ const apiV1GetDealByUserId = async (req, res) => {
         const influencerPackages = await Package.find({userId: userId});
         const packageIds = influencerPackages.map(pkg => pkg._id);
 
-        deals = await Deal.find({packageId: {$in: packageIds}});
+        deals = await Deal.find({packageId: {$in: packageIds}}).populate('packageId');
     }
     else{
-        deals = await Deal.find({userId: userId});
+        deals = await Deal.find({userId: userId}).populate('packageId');
     }
 
     return res.status(200).json({ deals });
