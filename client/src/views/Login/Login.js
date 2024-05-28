@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './Login.css'; 
 import Swal from 'sweetalert2';
+import './Login.css';
 import openEyeImage from './open-eye.jpeg';
 import closedEyeImage from './close-eye.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
@@ -28,7 +28,6 @@ const Login = () => {
       console.log("reached here");
       console.log(response);
 
-    
       sessionStorage.setItem('user', JSON.stringify(response.data.user));
 
       if (response.data.user.role === 'user') {
@@ -61,8 +60,7 @@ const Login = () => {
       });
       if (response.status === 201) {
         sessionStorage.setItem('user', JSON.stringify(response.data.user));
-        
-        // Show success alert using SweetAlert
+
         Swal.fire({
           icon: 'success',
           title: 'Signup Successful!',
@@ -93,23 +91,23 @@ const Login = () => {
     setCity('');
     setPassword('');
     setSignupPassword('');
-    setRole('user'); 
+    setRole('user');
     setError('');
   };
 
   return (
     <div>
       <Navbar />
-      <div className="login-signup-container">
-        <div className="eye-container">
-          <img src={isLogin ? openEyeImage : closedEyeImage} alt={isLogin ? 'Open eye' : 'Closed eye'} className="eye-image" />
+      <div className="max-w-md mx-auto mt-24 p-5 text-center">
+        <div className="eye-image flex justify-center mb-5">
+          <img src={isLogin ? openEyeImage : closedEyeImage} alt={isLogin ? 'Open eye' : 'Closed eye'} className="w-24 h-auto rounded-full animate-shake" />
         </div>
-        <h2 className="signup-login-heading">{isLogin ? 'Login' : 'Sign Up'}</h2>
-        {error && <p className="error-message">{error}</p>}
+        <h2 className="text-4xl font-bold mb-5 text-center text-blue-500 font-pacifico animate-bounce">{isLogin ? 'Login' : 'Sign Up'}</h2>
+        {error && <p className="text-red-500 mb-5">{error}</p>}
         <form onSubmit={handleSubmit}>
           {!isLogin && (
-            <div className="form-group-signup">
-              <input className='signup-box'
+            <div className="mb-4">
+              <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
                 type="text"
                 placeholder="Name"
                 value={name}
@@ -119,8 +117,8 @@ const Login = () => {
             </div>
           )}
           {!isLogin && (
-            <div className="form-group-signup">
-              <input className='signup-box'
+            <div className="mb-4">
+              <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
                 type="tel"
                 placeholder="Mobile"
                 value={mobile}
@@ -130,8 +128,8 @@ const Login = () => {
             </div>
           )}
           {!isLogin && (
-            <div className="form-group-signup">
-              <input className='signup-box'
+            <div className="mb-4">
+              <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
                 type="text"
                 placeholder="City"
                 value={city}
@@ -140,8 +138,8 @@ const Login = () => {
               />
             </div>
           )}
-          <div className="form-group-signup">
-            <input className='signup-box'
+          <div className="mb-4">
+            <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
               type="email"
               placeholder="Email"
               value={email}
@@ -149,31 +147,23 @@ const Login = () => {
               required={!isLogin}
             />
           </div>
-          <div className="form-group-signup">
-            {isLogin ? (
-              <input className='signup-box'
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            ) : (
-              <input className='signup-box'
-                type="password"
-                placeholder="Signup Password"
-                value={signupPassword}
-                onChange={(e) => setSignupPassword(e.target.value)}
-                required
-              />
-            )}
+          <div className="mb-4">
+            <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
+              type="password"
+              placeholder={isLogin ? "Password" : "Signup Password"}
+              value={isLogin ? password : signupPassword}
+              onChange={(e) => isLogin ? setPassword(e.target.value) : setSignupPassword(e.target.value)}
+              required
+            />
           </div>
           {!isLogin && (
-            <div className="form-group">
+            <div className="mb-4">
               <select
                 id="role"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
+                className="w-full p-3 text-lg border border-gray-300 rounded-lg bg-white transition duration-300 focus:outline-none focus:border-blue-500"
+                required
               >
                 <option value="">Select Role</option>
                 <option value="user">User</option>
@@ -183,16 +173,16 @@ const Login = () => {
           )}
           <button className="login-signup-btn" type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
         </form>
-        <div className="toggle-mode">
+        <div className="mt-5">
           {isLogin ? (
             <p>
               Don't have an account?{' '}
-              <span onClick={toggleMode}>Sign Up</span>
+              <span onClick={toggleMode} className="text-blue-500 font-bold cursor-pointer hover:underline">Sign Up</span>
             </p>
           ) : (
             <p>
               Already have an account?{' '}
-              <span onClick={toggleMode}>Login</span>
+              <span onClick={toggleMode} className="text-blue-500 font-bold cursor-pointer hover:underline">Login</span>
             </p>
           )}
         </div>
