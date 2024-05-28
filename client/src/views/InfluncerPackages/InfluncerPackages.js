@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PackageSmallCard from '../../components/PackageSmallCard/PackageSmallCard';
 import { useParams } from 'react-router-dom';
-import './InfluncerPackages.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
@@ -28,22 +27,22 @@ function InfluncerPackages() {
 
   return (
     <div>
-        <Navbar />
-    <div className='user-pack-card-container'>
-      {error && <div>Error: {error}</div>}
-      {packages.map((pkg, index) => (
-        <div key={index}>
-          <PackageSmallCard
-            _id={pkg._id}
-            packageName={pkg.packageName}
-            features={pkg.features}
-            price={pkg.price}
-            showLink={true}
-          />
-        </div>
-      ))}
-    </div>
-    <Footer />
+      <Navbar />
+      <div className='flex flex-wrap mt-6'>
+        {error && <div>Error: {error}</div>}
+        {packages.map((pkg, index) => (
+          <div key={index}>
+            <PackageSmallCard
+              _id={pkg._id}
+              packageName={pkg.packageName}
+              features={pkg.features}
+              price={pkg.price}
+              showLink={true}
+            />
+          </div>
+        ))}
+      </div>
+      <Footer />
     </div>
   );
 }
