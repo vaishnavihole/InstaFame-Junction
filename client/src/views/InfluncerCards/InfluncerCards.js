@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InfluncerSmallCard from '../../components/InfluncerSmallCard/InfluncerSmallCard';
 import axios from 'axios';
-import './InfluncerCards.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
@@ -26,11 +25,11 @@ function InfluncerCards() {
   return (
     <div>
       <Navbar />
-      <div className='influncer-card-div'>
+      <div className='flex flex-wrap justify-evenly mt-4'>
         {influencers.map(influencer => {
           const { _id, name, accounts, profileImage } = influencer;
           return accounts.map(account => (
-            <Link key={_id} to={`/influncerPackages/${_id}`} className="link-style">
+            <Link key={_id} to={`/influncerPackages/${_id}`} className="no-underline">
               <InfluncerSmallCard 
                 key={account._id} 
                 name={name} 
