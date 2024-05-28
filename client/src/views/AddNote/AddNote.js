@@ -36,7 +36,7 @@ const AddNote = () => {
         icon: 'success',
         title: 'Deal created successfully',
       });
-      setNote(''); // Clear the textarea after successful confirmation
+      setNote(''); 
     } catch (err) {
       console.error('Failed to create deal', err);
     }

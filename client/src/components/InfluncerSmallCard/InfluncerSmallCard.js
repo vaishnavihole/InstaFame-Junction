@@ -1,5 +1,4 @@
 import React from 'react';
-import './InfluncerSmallCard.css';
 import { FaInstagram, FaYoutube, FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import defaultAvatarUrl from './user.png';
 
@@ -24,14 +23,14 @@ function InfluncerSmallCard({ handle, accountType, followers, subscribers, name,
   const imageUrl = profileImage || defaultAvatarUrl;
 
   return (
-    <div className='influncer-container'>
-      <div className="influncer-card">
-        <img src={imageUrl} alt="Profile" className="influncer-profile-image" />
-        <h3 className="user-name">{name}</h3>
-        <div className='social-container'>
-          <AccountTypeIcon accountType={accountType} />
-          <p className='account-name'>{handle}</p>
-          <p className='account-followers'>
+    <div className='flex flex-wrap justify-evenly mt-24'>
+      <div className="relative mb-6 border border-gray-300 bg-white rounded-lg p-3 shadow-md flex flex-col items-center text-center transform transition-transform duration-300 hover:translate-y-1 hover:shadow-lg hover:border-blue-500 w-72"> {/* Increased width */}
+        <img src={imageUrl} alt="Profile" className="absolute top-[-50px] w-20 h-20 rounded-full border border-black transition-transform duration-300 hover:scale-110 hover:border-blue-500" />
+        <h3 className="mt-12 text-center text-blue-500 font-bold text-xl">{name}</h3> {/* Decreased margin top */}
+        <div className='flex flex-col items-center mt-2 p-2 border border-gray-200 rounded-lg bg-gray-50 shadow-sm hover:shadow-md hover:border-blue-500'> {/* Decreased margin top */}
+          <AccountTypeIcon accountType={accountType} className="text-2xl" />
+          <p className='mt-1 font-bold'>{handle}</p>
+          <p className='mt-1 text-gray-600'>
             {followers ? `Followers: ${followers}` : `Subscribers: ${subscribers}`}
           </p>
         </div>
