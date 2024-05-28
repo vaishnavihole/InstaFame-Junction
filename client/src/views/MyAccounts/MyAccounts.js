@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './MyAccounts.css';
 import UserAccounts from '../../components/UserAccounts/UserAccounts';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
@@ -38,12 +37,12 @@ function MyAccounts() {
   return (
     <div>
       <Navbar />
-      <div className="button-container">
+      <div className="flex justify-end mt-8 mr-8">
         <Link to="/addAccountForm">
-          <button className="add-account-btn">Add Account</button>
+          <button className="bg-gradient-to-r from-cyan-400 to-blue-400 rounded-lg cursor-pointer py-2 px-6 transition-all duration-500 hover:rounded-full text-white">Add Account</button>
         </Link>
       </div>
-      <div className="user-cards-container">
+      <div className="flex flex-wrap gap-5 justify-center p-5">
         {accounts.length ? (
           accounts.map((account) => {
             const { handle, accountType, followers, subscribers, name, profileImage } = account;
