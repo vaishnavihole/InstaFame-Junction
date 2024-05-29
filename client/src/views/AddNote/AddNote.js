@@ -4,6 +4,7 @@ import './AddNote.css';
 import { useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+
 import Swal from 'sweetalert2';
 
 const AddNote = () => {
@@ -36,30 +37,30 @@ const AddNote = () => {
         icon: 'success',
         title: 'Deal created successfully',
       });
-      setNote(''); 
+      setNote('');
     } catch (err) {
       console.error('Failed to create deal', err);
     }
   };
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className='container'>
-        <div>
-          <div className='deal-quotes'>This is the final step. Please confirm your deal!!</div>
-        </div>
-        <div>
+      <div className="flex-grow flex flex-col items-center justify-center">
+        <div className="deal-quotes text-center text-lg font-bold mb-6 animate-fadeIn animate-bounce">This is the final step. Please confirm your deal!!</div>
+        <div className="mb-4">
           <textarea
             value={note}
             onChange={(e) => setNote(e.target.value)}
             placeholder="Add your note here..."
             rows={4}
-            cols={50}
+            className="w-80 h-36 p-2 border border-gray-300 rounded-md resize-none"
           />
         </div>
         <div>
-          <button onClick={handleConfirm} className='confirm-button'>Confirm</button>
+          <button onClick={handleConfirm} className="confirm-button ">
+            Confirm
+          </button>
         </div>
       </div>
       <Footer />

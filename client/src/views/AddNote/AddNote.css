@@ -1,29 +1,7 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   
-    height: 100vh;
-  }
-  
-  .textarea-container {
-    margin-bottom: 20px;
-  }
-  
-  textarea {
-    width: 400px;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
-  }
-  
+
   .confirm-button{
     padding: 10px 20px; 
     background:linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);;  
-    border: 1px solid black;
     border-radius: 10px; 
     cursor: pointer;
     margin-right: 20px;
