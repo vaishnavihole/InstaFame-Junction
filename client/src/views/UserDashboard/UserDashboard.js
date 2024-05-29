@@ -34,7 +34,7 @@ import DealImg from './deal.png';
         
 
           <div className="menucard d-flex second-menucard justify-content-around">
-                <Link to='/myPackages' className="menu-text">
+                <Link to='/myDeals' className="menu-text">
                 <div className="menucontainer">
                     <img src={DealImg} className="menuImg d-block mx-auto"/>
                     <p className="menu-text text-center" >My Deal</p>
