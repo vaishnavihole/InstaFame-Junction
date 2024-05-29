@@ -1,27 +1,26 @@
 .contact-container {
     display: flex;
-    align-items: flex-start; /* Align items to the top */
-    justify-content: flex-start; /* Align items to the left */
-    height: 100vh;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    
     padding: 20px;
-    box-sizing: border-box;
     margin-top: 50px;
   }
   
   .contact-image {
     flex: 1;
     display: flex;
-    justify-content: flex-start; /* Align image to the left */
+    justify-content: flex-start; 
     align-items: center;
-    margin-right: 10px; /* Add some space between image and form */
+    margin-right: 10px; 
   }
   
   .contact-image img {
-    height: 80vh; /* Adjust this value to set the desired height */
-    width: auto; /* Maintain aspect ratio */
+    height: 80vh; 
+    width: auto;
     border-radius: 10px;
-    opacity: 0; /* Start with the image hidden */
-    animation: fadeIn 2s forwards; /* Apply the fade-in animation */
+    opacity: 0; 
+    animation: fadeIn 2s forwards; 
   }
   
   @keyframes fadeIn {
@@ -31,7 +30,7 @@
   }
   
   .contact-form {
-    flex: 0 1 400px; /* Adjust the basis here to control the size */
+    flex: 0 1 400px; 
     padding: 20px;
     box-sizing: border-box;
     background-color: #f9f9f9;
@@ -90,22 +89,22 @@
     font-weight: bold;
   }
   
-  /* Media Query for smaller screens */
+  
   @media (max-width: 768px) {
     .contact-container {
       flex-direction: column;
-      align-items: center; /* Center align items on small screens */
+      align-items: center; 
     }
     .contact-form {
       flex: 1;
       width: 100%;
-      margin-left: 0; /* Reset the margin-left for small screens */
+      margin-left: 0; 
     }
     .contact-image {
       margin-bottom: 20px;
     }
     .contact-image img {
-      height: auto; /* Reset height to auto for small screens */
+      height: auto;
       width: 100%;
     }
   }
