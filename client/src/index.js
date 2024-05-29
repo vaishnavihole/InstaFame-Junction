@@ -16,6 +16,7 @@ import MyAccounts from './views/MyAccounts/MyAccounts';
 import AddAccountForm from './views/AddAccountForm/AddAccountForm';
 import InfluncerDasboard from './views/InfluncerDasboard/InfluncerDasboard';
 import InfluncerPackages from './views/InfluncerPackages/InfluncerPackages';
+import UserDashboard from './views/UserDashboard/UserDashboard';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
   {
     path: '/influncerPackages/:userId',
     element: <InfluncerPackages />
+  },
+  {
+    path: '/userDashboard',
+    element: <UserDashboard />
   }
  
 ])

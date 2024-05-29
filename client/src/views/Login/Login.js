@@ -31,7 +31,7 @@ const Login = () => {
       sessionStorage.setItem('user', JSON.stringify(response.data.user));
 
       if (response.data.user.role === 'user') {
-        window.location.href = 'influncerCards';
+        window.location.href = '/userDashboard';
       } else if (response.data.user.role === 'influencer') {
         window.location.href = '/influncerDasboard';
       }

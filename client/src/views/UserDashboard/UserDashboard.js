@@ -1,15 +1,14 @@
 import react, { useState, useEffect} from "react";
-import './InfluncerDasboard.css';
+import './UserDashboard.css';
 import { Link } from "react-router-dom";
-import profileImg from './profile.png';
-import accountsImg from './account.png';
-import PackageImg from './packages.png';
-import dealImg from './deal.png';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import profileImg from './profile.png';
+import influencerImg from './influencer.png';
+import DealImg from './deal.png';
 
 
- function InfluncerDashboard() {
+ function UserDashboard() {
   return (
     <>
       <Navbar />
@@ -19,16 +18,16 @@ import Footer from '../../components/Footer/Footer';
       {/* <img src={jodoLogo} className="logoCss"/> */}
             <div className="menucard d-flex justify-content-around">
               
-              <Link to='/myAccounts' className="menu-text">
+              <Link to='/myProfile' className="menu-text">
                 <div  className="menucontainer">
-                    <img src={accountsImg} className="menuImg d-block mx-auto"/>
-                    <p className=" text-center menu-text">My Accounts</p>
+                <img src={profileImg } className="menuImg d-block mx-auto"/>
+                    <p className=" text-center menu-text">My Profile</p>
                 </div>
               </Link>
-              <Link to='/myProfile' className="menu-text">
+              <Link to='/influncerCards' className="menu-text">
                 <div className="menucontainer">
-                <img src={profileImg} className="menuImg d-block mx-auto"/>
-                    <p className="text-center">My Profile</p>
+                <img src={influencerImg} className="menuImg d-block mx-auto"/>
+                    <p className="text-center">Influncer </p>
                 </div>
               </Link>
             </div>
@@ -37,13 +36,13 @@ import Footer from '../../components/Footer/Footer';
           <div className="menucard d-flex second-menucard justify-content-around">
                 <Link to='/myPackages' className="menu-text">
                 <div className="menucontainer">
-                    <img src={PackageImg} className="menuImg d-block mx-auto"/>
-                    <p className="menu-text text-center" >My Packages</p>
+                    <img src={DealImg} className="menuImg d-block mx-auto"/>
+                    <p className="menu-text text-center" >My Deal</p>
                 </div>
                 </Link>
                 <Link to='/myDeals' className="menu-text">
                 <div  className="menucontainer">
-                    <img src={dealImg} className="menuImg d-block mx-auto"/>
+                    {/* <img src={dealImg} className="menuImg d-block mx-auto"/> */}
                     <p className="menu-text text-center">My Deal</p>
                 </div>
                 </Link>
@@ -55,4 +54,4 @@ import Footer from '../../components/Footer/Footer';
   );
 }
 
-export default InfluncerDashboard;
+export default UserDashboard;
