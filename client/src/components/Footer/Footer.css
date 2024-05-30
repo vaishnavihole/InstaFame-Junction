@@ -18,8 +18,9 @@ footer {
 }
 
 .footer-logo img {
-    width: 100px; /* Adjust according to your logo size */
-}
+    height: 70px; 
+    width: auto;
+  }
 
 .footer-links ul,
 .footer-social ul {
