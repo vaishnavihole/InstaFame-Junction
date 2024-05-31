@@ -4,6 +4,8 @@ import InfluncerSmallCard from '../../components/InfluncerSmallCard/InfluncerSma
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import allowedRole from '../../utils/auth';
+import Swal from 'sweetalert2';
 
 function InfluncerCards() {
   const [influencers, setInfluencers] = useState([]);
@@ -16,10 +18,26 @@ function InfluncerCards() {
     } catch (error) {
       console.error("Error fetching influencers:", error);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchInfluencers();
+    const temp = sessionStorage.getItem('user');
+    const user = temp ? JSON.parse(temp) : null;
+
+    if (!allowedRole(user, 'user')) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Access Denied',
+        text: 'You do not have permission to access this page.',
+        confirmButtonText: 'Go to Influencer Dashboard',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '/influencerdashboard';
+        }
+      });
+    } else {
+      fetchInfluencers();
+    }
   }, []);
 
   return (

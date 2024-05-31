@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import axios from 'axios';
-import './AddAccountForm.css';
 import swal from 'sweetalert2';
+import './AddAccountForm.css';
+import allowedRole from '../../utils/auth';
 
 function AddAccountForm() {
   const [accountType, setAccountType] = useState('');
@@ -12,26 +13,50 @@ function AddAccountForm() {
   const [subscribers, setSubscribers] = useState('');
 
   const getUserId = () => {
-    return JSON.parse(sessionStorage.getItem('user'))._id;
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    return user ? user._id : null;
   };
+
+  if (!allowedRole('influencer')) {
+    swal.fire({
+      icon: 'error',
+      title: 'Unauthorized',
+      text: 'You do not have the necessary permissions to access this page.',
+    }).then(() => {
+      window.location.href = '/userdashboard';
+    });
+    return null;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userId = getUserId(); 
+    const userId = getUserId();
+    if (!userId) {
+      swal.fire({
+        icon: 'error',
+        title: 'User not found',
+        text: 'Please log in to add an account.',
+      }).then(() => {
+        window.location.href = '/login';
+      });
+      return;
+    }
+
     try {
       await axios.post('/api/v1/addAccount', {
         accountType,
         handle,
         followers,
         subscribers,
-        userId, 
+        userId,
       });
       swal.fire({
         icon: 'success',
         title: 'Account Added!',
         text: 'Your account has been added successfully.',
+      }).then(() => {
+        window.location.href = '/myAccounts';
       });
-      window.location.href = '/myAccounts';
     } catch (error) {
       swal.fire({
         icon: 'error',
@@ -100,9 +125,7 @@ function AddAccountForm() {
               />
             </div>
           )}
-          <button type="submit" className="form-submit-button">
-            Add Account
-          </button>
+          <button type="submit" className="form-submit-button px-4 py-2 bg-blue-500 text-white rounded-lg">Add Account</button>
         </form>
       </div>
       <Footer />

@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {  signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import './index.css';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';

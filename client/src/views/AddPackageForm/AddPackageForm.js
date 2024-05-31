@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './AddPackageForm.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import allowedRole from '../../utils/auth';
 
 const AddPackageForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +17,17 @@ const AddPackageForm = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
     return user ? user._id : null;
   };
+
+  if (!allowedRole('influencer')) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Unauthorized',
+      text: 'You do not have the necessary permissions to access this page.',
+    }).then(() => {
+      window.location.href = '/userdashboard';
+    });
+    return null;
+  }
 
   const handleChange = (e, index) => {
     const { name, value } = e.target;
@@ -41,8 +52,9 @@ const AddPackageForm = () => {
         icon: 'error',
         title: 'User not found',
         text: 'Please log in to add a package.',
+      }).then(() => {
+        window.location.href = '/login';
       });
-      window.location.href = '/login';
       return;
     }
 
@@ -57,9 +69,9 @@ const AddPackageForm = () => {
         icon: 'success',
         title: 'Package Added!',
         text: 'Your package has been added successfully.',
+      }).then(() => {
+        window.location.href = '/myPackages';
       });
-
-      window.location.href = '/myPackages';
 
       setFormData({
         packageName: '',
@@ -108,7 +120,7 @@ const AddPackageForm = () => {
               />
             </div>
           ))}
-          <button type="button" onClick={handleAddFeature} className="add-feature-btn">Add Another Feature</button>
+          <button type="button" onClick={handleAddFeature} className="add-feature-btn mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg">Add Another Feature</button>
           <div className="mb-4">
             <label htmlFor="price" className="block text-gray-700 font-bold mb-2">Price:</label>
             <input
@@ -121,7 +133,7 @@ const AddPackageForm = () => {
               required
             />
           </div>
-          <button type="submit" className="add-package-button">Add Package</button>
+          <button type="submit" className="add-package-button px-4 py-2 bg-green-500 text-white rounded-lg">Add Package</button>
         </form>
       </div>
       <Footer />

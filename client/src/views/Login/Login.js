@@ -7,6 +7,8 @@ import closedEyeImage from './close-eye.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import axios from 'axios';
+import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import { auth } from './../../firebase/firebaseConfig'
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -71,7 +73,21 @@ const Login = () => {
       console.error('Error:', error.response);
       setError(error.response.data.message || 'Internal server error');
     }
-  }
+  };
+
+  const handleGoogleLogin = () => {
+    const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+      .then((result) => {
+        const {displayName, email} = result.user;
+
+        console.log("Google Login Success:", result.user);
+        
+      }).catch((error) => {
+        console.error("Google Login Error:", error);
+      });
+    console.log('Google login clicked');
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -106,37 +122,35 @@ const Login = () => {
         {error && <p className="text-red-500 mb-5">{error}</p>}
         <form onSubmit={handleSubmit}>
           {!isLogin && (
-            <div className="mb-4">
-              <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
-          )}
-          {!isLogin && (
-            <div className="mb-4">
-              <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
-                type="tel"
-                placeholder="Mobile"
-                value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
-                required
-              />
-            </div>
-          )}
-          {!isLogin && (
-            <div className="mb-4">
-              <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
-                type="text"
-                placeholder="City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                required
-              />
-            </div>
+            <>
+              <div className="mb-4">
+                <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
+                  type="text"
+                  placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
+                  type="tel"
+                  placeholder="Mobile"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
+                  type="text"
+                  placeholder="City"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  required
+                />
+              </div>
+            </>
           )}
           <div className="mb-4">
             <input className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500"
@@ -171,7 +185,17 @@ const Login = () => {
               </select>
             </div>
           )}
-          <button className="login-signup-btn" type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
+          <button className="login-signup-btn mb-4" type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
+          {!isLogin && (
+            <button
+              type="button"
+              onClick={handleGoogleLogin}
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500 flex items-center justify-center mb-4"
+            >
+              <i className="fab fa-google text-xl mr-3"></i>
+              Login with Google
+            </button>
+          )}
         </form>
         <div className="mt-5">
           {isLogin ? (
