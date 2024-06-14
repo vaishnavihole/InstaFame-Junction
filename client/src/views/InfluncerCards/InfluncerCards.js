@@ -4,52 +4,34 @@ import InfluncerSmallCard from '../../components/InfluncerSmallCard/InfluncerSma
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
-import allowedRole from '../../utils/auth';
-import Swal from 'sweetalert2';
 
-function InfluncerCards() {
-  const [influencers, setInfluencers] = useState([]);
+function InfluencerCards() {
+  const [users, setUsers] = useState([]);
 
-  const fetchInfluencers = async () => {
+  const fetchUsers = async () => {
     try {
       const response = await axios.get('/api/v1/getInfluencerUsers');
-      console.log('Fetched influencers:', response.data);
-      setInfluencers(response.data.users);
+      console.log('Fetched users:', response.data);
+      setUsers(response.data.users);
     } catch (error) {
-      console.error("Error fetching influencers:", error);
+      console.error("Error fetching users:", error);
     }
   };
 
   useEffect(() => {
-    const temp = sessionStorage.getItem('user');
-    const user = temp ? JSON.parse(temp) : null;
-
-    if (!allowedRole(user, 'user')) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Access Denied',
-        text: 'You do not have permission to access this page.',
-        confirmButtonText: 'Go to Influencer Dashboard',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = '/influencerdashboard';
-        }
-      });
-    } else {
-      fetchInfluencers();
-    }
+    fetchUsers();
   }, []);
 
   return (
     <div>
       <Navbar />
       <div className='flex flex-wrap justify-evenly mt-4'>
-        {influencers.map(influencer => {
-          const { _id, name, accounts, profileImage } = influencer;
+        {users.map(user => {
+          const { _id, name, accounts, profileImage } = user;
           return accounts.map(account => (
-            <Link key={_id} to={`/influncerPackages/${_id}`} className="no-underline">
+            <Link key={account._id} to={`/influncerPackages/${_id}`} className="no-underline">
               <InfluncerSmallCard 
-                key={account._id} 
+              _id={_id}
                 name={name} 
                 handle={account.handle} 
                 accountType={account.accountType} 
@@ -66,4 +48,4 @@ function InfluncerCards() {
   );
 }
 
-export default InfluncerCards;
+export default InfluencerCards;

@@ -9,6 +9,7 @@ import Footer from '../../components/Footer/Footer';
 import axios from 'axios';
 import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from './../../firebase/firebaseConfig'
+import googleLogo from './google.png';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -187,14 +188,15 @@ const Login = () => {
           )}
           <button className="login-signup-btn mb-4" type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
           {!isLogin && (
-            <button
-              type="button"
-              onClick={handleGoogleLogin}
-              className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500 flex items-center justify-center mb-4"
-            >
-              <i className="fab fa-google text-xl mr-3"></i>
-              Login with Google
-            </button>
+         <button
+         type="button"
+         onClick={handleGoogleLogin}
+         className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500 flex items-center justify-center mb-4 hover:bg-gray-100">
+         <img src={googleLogo} alt="Google Logo" className="w-6 h-6 mr-3" />
+         Login with Google
+       </button>
+       
+         
           )}
         </form>
         <div className="mt-5">

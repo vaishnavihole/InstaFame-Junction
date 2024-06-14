@@ -18,6 +18,7 @@ import AddAccountForm from './views/AddAccountForm/AddAccountForm';
 import InfluncerDasboard from './views/InfluncerDasboard/InfluncerDasboard';
 import InfluncerPackages from './views/InfluncerPackages/InfluncerPackages';
 import UserDashboard from './views/UserDashboard/UserDashboard';
+import ChatPage from './views/ChatPage/ChatPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
   {
     path: '/userDashboard',
     element: <UserDashboard />
+  },
+  {
+    path: '/chatPage/:id',
+    element: <ChatPage />
   }
  
 ])
