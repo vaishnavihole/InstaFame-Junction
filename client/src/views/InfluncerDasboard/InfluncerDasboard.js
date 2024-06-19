@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import './InfluncerDasboard.css';
 import { Link } from "react-router-dom";
 import profileImg from './profile.png';
 import accountsImg from './account.png';
@@ -63,6 +62,13 @@ function InfluncerDashboard() {
               </div>
             </Link>
           </div>
+        </div>
+        <div className="flex justify-center mt-2"> {/* Added mt-8 for top margin */}
+          <Link to='/viewAllChats'>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+              View Chat
+            </button>
+          </Link>
         </div>
       </div>
       <Footer />

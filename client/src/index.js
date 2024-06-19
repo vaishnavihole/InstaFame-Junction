@@ -19,6 +19,7 @@ import InfluncerDasboard from './views/InfluncerDasboard/InfluncerDasboard';
 import InfluncerPackages from './views/InfluncerPackages/InfluncerPackages';
 import UserDashboard from './views/UserDashboard/UserDashboard';
 import ChatPage from './views/ChatPage/ChatPage';
+import ViewAllChats from './views/ViewAllChats/ViewAllChats';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
   {
     path: '/chatPage/:id',
     element: <ChatPage />
+  },
+  {
+    path: '/viewAllChats',
+    element:<ViewAllChats />
   }
  
 ])
