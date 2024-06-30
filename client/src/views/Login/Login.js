@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import axios from 'axios';
 import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import googleLogo from './google.png';
 import toast from 'react-hot-toast';
 
 const Login = () => {
@@ -33,21 +34,20 @@ const Login = () => {
 
       sessionStorage.setItem('user', JSON.stringify(response.data.user));
 
-      toast.dismiss();
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Login Successful!',
-        text: 'You have successfully logged in.',
-      });
-
       if (response.data.user.role === 'user') {
         window.location.href = '/userDashboard';
       } else if (response.data.user.role === 'influencer') {
         window.location.href = '/influncerDasboard';
       }
 
-    
+      toast.dismiss();
+      toast.success('Login Successful!');
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Successful!',
+        text: 'You have successfully logged in.',
+      });
 
     } catch (error) {
       toast.dismiss();
@@ -86,7 +86,6 @@ const Login = () => {
       setError(error.response.data.message || 'Internal server error');
     }
   };
-
 
 
   const handleSubmit = async (e) => {
@@ -185,6 +184,8 @@ const Login = () => {
               </select>
             </div>
           )}
+          <button className="login-signup-btn mb-4" type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
+          
         </form>
         <div className="mt-5">
           {isLogin ? (
