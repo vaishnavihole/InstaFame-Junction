@@ -1,6 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import path from 'path';
+const __dirname = path.resolve();
 
 import {apiV1Signup, apiV1Login, apiV1Update, apiV1AllUsers, apiV1GetUser,apiV1GetInfluencerUsers} from "./controllers/user/user.js";
 import {apiv1AddAccount,  apiV1AllAccounts, apiV1GetAccountsByUserId, apiV1UpdateAccount} from "./controllers/account/account.js";
@@ -74,6 +76,16 @@ app.get("/api/v1/getDealsByUserId/:userId", apiV1GetDealByUserId);
 
 app.post("/api/v1/sendMessage", apiV1SendMessage);
 app.post("/api/v1/userChat", apiV1GetUserChat);
+
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+  });
+}
+
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGO_DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
