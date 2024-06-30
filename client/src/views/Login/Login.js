@@ -8,8 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import axios from 'axios';
 import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
-import { auth } from './../../firebase/firebaseConfig'
-import googleLogo from './google.png';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -23,6 +22,7 @@ const Login = () => {
   const [error, setError] = useState('');
 
   const handleLogin = async () => {
+    toast.loading('Logging in...');
     try {
       const response = await axios.post('/api/v1/login', {
         email: email,
@@ -33,11 +33,7 @@ const Login = () => {
 
       sessionStorage.setItem('user', JSON.stringify(response.data.user));
 
-      if (response.data.user.role === 'user') {
-        window.location.href = '/userDashboard';
-      } else if (response.data.user.role === 'influencer') {
-        window.location.href = '/influncerDasboard';
-      }
+      toast.dismiss();
 
       Swal.fire({
         icon: 'success',
@@ -45,13 +41,24 @@ const Login = () => {
         text: 'You have successfully logged in.',
       });
 
+      if (response.data.user.role === 'user') {
+        window.location.href = '/userDashboard';
+      } else if (response.data.user.role === 'influencer') {
+        window.location.href = '/influncerDasboard';
+      }
+
+    
+
     } catch (error) {
+      toast.dismiss();
+      toast.error(error.response.data.message || 'Internal server error');
       console.error('Error:', error.response);
       setError(error.response.data.message || 'Internal server error');
     }
   };
 
   const handleSignup = async () => {
+    toast.loading('Signing up...');
     try {
       const response = await axios.post('/api/v1/signup', {
         name,
@@ -63,6 +70,8 @@ const Login = () => {
       });
       if (response.status === 201) {
         sessionStorage.setItem('user', JSON.stringify(response.data.user));
+        toast.dismiss();
+        setIsLogin(true);
 
         Swal.fire({
           icon: 'success',
@@ -71,24 +80,14 @@ const Login = () => {
         });
       }
     } catch (error) {
+      toast.dismiss();
+      toast.error(error.response.data.message || 'Internal server error');
       console.error('Error:', error.response);
       setError(error.response.data.message || 'Internal server error');
     }
   };
 
-  const handleGoogleLogin = () => {
-    const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-      .then((result) => {
-        const {displayName, email} = result.user;
 
-        console.log("Google Login Success:", result.user);
-        
-      }).catch((error) => {
-        console.error("Google Login Error:", error);
-      });
-    console.log('Google login clicked');
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -185,18 +184,6 @@ const Login = () => {
                 <option value="influencer">Influencer</option>
               </select>
             </div>
-          )}
-          <button className="login-signup-btn mb-4" type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
-          {!isLogin && (
-         <button
-         type="button"
-         onClick={handleGoogleLogin}
-         className="w-full p-3 text-lg border border-gray-300 rounded-lg transition duration-300 focus:outline-none focus:border-blue-500 flex items-center justify-center mb-4 hover:bg-gray-100">
-         <img src={googleLogo} alt="Google Logo" className="w-6 h-6 mr-3" />
-         Login with Google
-       </button>
-       
-         
           )}
         </form>
         <div className="mt-5">
