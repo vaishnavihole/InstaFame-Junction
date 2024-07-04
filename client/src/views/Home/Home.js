@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import googleFonts from 'google-fonts';
@@ -35,13 +36,13 @@ function Home() {
             <h1 className='text-3xl mt-36 text-center text-black font-bold'>Get Your Influencer <br /> Without Any Efforts</h1>
           </div>
           <div className="button-container flex flex-col sm:flex-row justify-center sm:justify-between gap-2 w-full sm:w-auto">
-            <button className="influencer-btn py-2 px-3 rounded-md hover:rounded-full w-full sm:w-auto">
-              I want an influencer
-            </button>
-            <button className="influencer-btn py-2 px-3 rounded-md hover:rounded-full w-full sm:w-auto">
-              I want to be an influencer
-            </button>
-          </div>
+      <Link to="/login" className="influencer-btn py-2 px-3 rounded-md hover:rounded-full w-full sm:w-auto text-center">
+        I want an influencer
+      </Link>
+      <Link to="/login" className="influencer-btn py-2 px-3 rounded-md hover:rounded-full w-full sm:w-auto text-center">
+        I want to be an influencer
+      </Link>
+    </div>
         </div>
       </div>
 
